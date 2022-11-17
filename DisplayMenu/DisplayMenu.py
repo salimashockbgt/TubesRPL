@@ -23,4 +23,3 @@ class DisplayMenu:
         conn.close()
 #test
     displayMenu()
-    
