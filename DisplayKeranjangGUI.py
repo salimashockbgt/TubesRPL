@@ -3,7 +3,7 @@ import tkinter.font as tkFont
 import psycopg2
 
 def displayKeranjang():
-    roo = Tk() #framing
+    roo = Tk() # framing
     roo.geometry("2000x2000")
     roo.title("DAFTAR PESANAN")
 
@@ -17,21 +17,31 @@ def displayKeranjang():
     judul = Label(Tops, text="Keranjang", font=("Times", 20, "bold"))
     judul.grid(row=0, column=0)
 
-    # Button
-    tombolTambah = Button(roo, text = "+",fg ='white', bg ='blue',padx = 5, pady=5)
-    tombolTambah.pack()
+    # Menampilkan Pesanan Customer (Nama + Kuantitas)
+        # ini masih agak bingung, ngambil dr array objeknya apa gmn dah
 
-    tombolKurang = Button(roo, text = "-",fg ='white', bg ='blue',padx = 5, pady=5)
+
+    # Button
+    #  Tambahin Command, Benerin Warna dan Ukuran
+    tombolTambah = Button(roo, text = "+",fg ='white', bg ='blue',padx = 5, pady=5) # command : TambahKuantitas()
+    tombolTambah.pack() 
+
+    tombolKurang = Button(roo, text = "-",fg ='white', bg ='blue',padx = 5, pady=5) # command : KurangiKuantitas()
     tombolKurang.pack()
 
-    hapusMenu = Button(roo, text = "hapus menu",fg ='white', bg ='blue',padx = 15)
+    hapusMenu = Button(roo, text = "hapus menu",fg ='white', bg ='blue',padx = 15) # command : HapusMenu()
     hapusMenu.pack()
 
-    BackToMenu = Button(roo, text = "kembali ke daftar menu",fg ='white', bg ='blue')
+    BackToMenu = Button(roo, text = "kembali ke daftar menu",fg ='white', bg ='blue') # command : BackToMenu()
     BackToMenu.pack()
 
-    CheckOut = Button(roo, text = "checkout",fg ='white', bg ='blue')
+    CheckOut = Button(roo, text = "checkout",fg ='white', bg ='blue') # command : CheckOut()
     CheckOut.pack()
+
+    # Atur Posisi, Grid, Scroll
+
+
+
 
     roo.mainloop()
 
