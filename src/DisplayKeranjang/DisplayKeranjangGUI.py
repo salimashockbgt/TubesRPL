@@ -8,7 +8,6 @@ class DisplayKeranjangGUI(tk.Tk):
         super().__init__()
 
         def displayKeranjang():
-            roo = Tk() # framing
             roo.geometry("2000x2000")
             roo.title("DAFTAR PESANAN")
 
