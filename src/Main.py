@@ -25,7 +25,7 @@ class Main(tk.Tk):
 
         #tombol bisa ditambah buat requirement baru
         daftarmenu=Button(frame, padx=16,pady=16,bd=4, font=('Times', 16,'bold'), text="Lihat Menu", bg="Blue", command = display.DisplayMenuGUI)
-        daftarkeranjang=Button(frame, padx=16,pady=16,bd=4, font=('Times', 16,'bold'), text="Lihat Keranjang", bg="Blue", command = keranjang.displayKeranjang)
+        daftarkeranjang=Button(frame, padx=16,pady=16,bd=4, font=('Times', 16,'bold'), text="Lihat Keranjang", bg="Blue", command = keranjang.DisplayKeranjangGUI)
         exit=Button(frame, padx=16,pady=16,bd=4, font=('Times', 16,'bold'), text="Exit", bg="Blue", command = lambda: root.quit())
 
         #jangan lupa digrid setelah tambah label/button
