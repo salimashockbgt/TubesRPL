@@ -15,10 +15,10 @@ def TambahProduk(id_barang, jumlah_barang, nama_barang, harga_barang):
 
         connection.commit()
         count = cursor.rowcount
-        print(count, "Record inserted successfully into mobile table")
+        print(count, "Record inserted successfully into datapesanancustomer")
 
     except (Exception, psycopg2.Error) as error:
-        print("Failed to insert record into mobile table", error)
+        print("Failed to insert record into datapesanancustomer", error)
 
 
 # if __name__ == "__main__":
