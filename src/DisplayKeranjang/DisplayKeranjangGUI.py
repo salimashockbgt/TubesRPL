@@ -57,13 +57,13 @@ class DisplayKeranjangGUI(tk.Tk):
             total_rows = len(rows)
             total_columns = len(rows[0])
 
-            listbox = Listbox(roo, width=10, height=5)  #kotak batasan GUI
-            listbox["borderwidth"] = "1px"
+            listbox = Listbox(roo, width=10, height=5, bg='#f0f0f0')  #kotak batasan GUI
+            listbox["borderwidth"] = "0px"
             ft = tkFont.Font(family='Times', size=20)
             listbox["font"] = ft
             listbox["fg"] = "#000"
             listbox["justify"] = "left"
-            listbox.place(x=85, y=90, width=1420, height=140) #batas buat kotak yang diisi tabel disesuaikan
+            listbox.place(x=30, y=75, width=1140, height=200) #batas buat kotak yang diisi tabel disesuaikan
             header=['ID', 'Jumlah', 'Nama Menu', 'Harga'] #judul data
             for k in range(4):
                 e =Label(listbox, width=50, fg='#e27013',font=('Times', 10, 'bold'), text=header[k], borderwidth=1, relief="groove") #lebar judul tabel
