@@ -63,7 +63,7 @@ class DisplayKeranjangGUI(tk.Tk):
             listbox["font"] = ft
             listbox["fg"] = "#000"
             listbox["justify"] = "left"
-            listbox.place(x=30, y=75, width=1140, height=200) #batas buat kotak yang diisi tabel disesuaikan
+            listbox.place(x=85, y=90, width=1420, height=140) #batas buat kotak yang diisi tabel disesuaikan
             header=['ID', 'Jumlah', 'Nama Menu', 'Harga'] #judul data
             for k in range(4):
                 e =Label(listbox, width=50, fg='#e27013',font=('Times', 10, 'bold'), text=header[k], borderwidth=1, relief="groove") #lebar judul tabel
