@@ -33,5 +33,5 @@ def updateKuantitas(id_barang, jumlah_barang):
     except (Exception, psycopg2.Error) as error:
         print("Error in update operation", error)
 
-if __name__ == "__main__":
-    updateKuantitas(1,5)
+#if __name__ == "__main__":
+    #updateKuantitas(1,5)
