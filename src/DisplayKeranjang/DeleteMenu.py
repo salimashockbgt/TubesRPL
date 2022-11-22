@@ -21,4 +21,4 @@ def deleteMenu(id_barang):
     except (Exception, psycopg2.Error) as error:
         print("Error in Delete operation", error)
 
-deleteMenu(1)
+#deleteMenu(1)
