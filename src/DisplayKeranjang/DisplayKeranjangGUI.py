@@ -3,7 +3,7 @@ from tkinter import *
 import tkinter.font as tkFont
 import psycopg2
 import DisplayMenu.DisplayMenuGUI as Menu
-import CheckOut.DisplayStukGUI as checkout
+import CheckOut.DisplayStrukGUI as checkout
 
 
 class DisplayKeranjangGUI(tk.Tk):
@@ -35,7 +35,7 @@ class DisplayKeranjangGUI(tk.Tk):
                     return psycopg2.connect(
                         database="DataRestoran",
                         user="postgres",
-                        password="postgres",
+                        password="123",
                         host="127.0.0.1",
                         port=5432,
                     )

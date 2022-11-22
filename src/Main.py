@@ -8,7 +8,6 @@ class Main(tk.Tk):
     #constructor
     def __init__(root):
         super().__init__()
-
         #framing
         root.geometry("2000x2000")
         root.title("HALAMAN UTAMA")

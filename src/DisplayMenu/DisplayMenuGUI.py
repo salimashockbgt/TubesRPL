@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import *
 import tkinter.font as tkFont
 import psycopg2
+import DisplayHalamanProduk.tambahKurang as produk
 
 class DisplayMenuGUI(tk.Tk):
     #constructor
@@ -24,6 +25,10 @@ class DisplayMenuGUI(tk.Tk):
 
             #tombol back
             back=Button(frame, padx=16,pady=16,bd=4, font=('Times', 16,'bold'), text="Back", bg="Blue", command = lambda: roo.destroy())
+            back.grid(row=4, column=0)
+
+            #tombol halaman produk
+            back=Button(frame, padx=16,pady=16,bd=4, font=('Times', 16,'bold'), text="Produk", bg="Blue", command = produk.TambahKurang)
             back.grid(row=3, column=0)
 
             #program
@@ -32,7 +37,7 @@ class DisplayMenuGUI(tk.Tk):
                         return psycopg2.connect(
                             database="DataRestoran",
                             user="postgres",
-                            password="postgres",
+                            password="123",
                             host="127.0.0.1",
                             port=5432,
                         )
