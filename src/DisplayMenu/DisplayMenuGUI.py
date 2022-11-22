@@ -32,7 +32,7 @@ class DisplayMenuGUI(tk.Tk):
                         return psycopg2.connect(
                             database="DataRestoran",
                             user="postgres",
-                            password="123",
+                            password="postgres",
                             host="127.0.0.1",
                             port=5432,
                         )
