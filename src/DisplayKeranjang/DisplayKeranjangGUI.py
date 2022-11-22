@@ -3,6 +3,7 @@ from tkinter import *
 import tkinter.font as tkFont
 import psycopg2
 import DisplayMenu.DisplayMenuGUI as Menu
+import CheckOut.DisplayStukGUI as checkout
 
 
 class DisplayKeranjangGUI(tk.Tk):
@@ -34,7 +35,7 @@ class DisplayKeranjangGUI(tk.Tk):
                     return psycopg2.connect(
                         database="DataRestoran",
                         user="postgres",
-                        password="postgres",
+                        password="tetot2207",
                         host="127.0.0.1",
                         port=5432,
                     )
@@ -84,7 +85,7 @@ class DisplayKeranjangGUI(tk.Tk):
             BackToMenu = Button(roo, text = "kembali ke daftar menu",fg ='white', bg ='blue',command=Menu.DisplayMenuGUI) # command : BackToMenu()
             BackToMenu.place(x = 50, y = 675)
 
-            CheckOut = Button(roo, text = "checkout",fg ='white', bg ='blue') # command : CheckOut()
+            CheckOut = Button(roo, text = "checkout",fg ='white', bg ='blue', command= checkout.DisplayStrukGUI) # command : CheckOut()
             CheckOut.place(x = 1400, y = 675)
 
             roo.mainloop()
