@@ -2,7 +2,11 @@ import tkinter as tk
 from tkinter import *
 import tkinter.font as tkFont
 import psycopg2
+<<<<<<< HEAD
 import DisplayHalamanProduk.tambahKurang as produk
+=======
+import DisplayHalamanProduk.DisplayHalamanProdukGUI as produk
+>>>>>>> a8ccf3e0e43b657029c632419c578429153c1ba6
 
 class DisplayMenuGUI(tk.Tk):
     #constructor
@@ -30,6 +34,10 @@ class DisplayMenuGUI(tk.Tk):
             #tombol halaman produk
             back=Button(frame, padx=16,pady=16,bd=4, font=('Times', 16,'bold'), text="Produk", bg="Blue", command = produk.TambahKurang)
             back.grid(row=3, column=0)
+
+            # tombol halaman produk
+            tombolProduk=Button(frame, padx=16,pady=16,bd=4, font=('Times', 16,'bold'), text="details", bg="Blue", command = produk.DisplayHalamanProdukGUI)
+            tombolProduk.grid(row=3, column=1)
 
             #program
             def getMenu():

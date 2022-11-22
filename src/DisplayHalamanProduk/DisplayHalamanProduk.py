@@ -1,20 +1,20 @@
 import psycopg2
 
-class DisplayKeranjang:
-    def displayKeranjang():
-        def getKeranjang():
+class DisplayHalamanProduk():
+    def displayHalamanProduk():
+        def getHalamanProduk():
             try:
                 return psycopg2.connect(
                     database="DataRestoran",
                     user="postgres",
-                    password="123",
+                    password="Kimjongin140194",
                     host="127.0.0.1",
                     port=5432,
                 )
             except:
                 return False
-
-        conn = getKeranjang()
+        
+        conn = getHalamanProduk()
         curr = conn.cursor()
         curr.execute("SELECT * FROM datapesanancustomer;")
         data = curr.fetchall()
@@ -22,5 +22,4 @@ class DisplayKeranjang:
             print(row)
         conn.close()
 #test
-
-    displayKeranjang()
+    displayHalamanProduk()
