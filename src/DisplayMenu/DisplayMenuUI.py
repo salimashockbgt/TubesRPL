@@ -11,11 +11,11 @@ import DisplayHalamanProduk.Menu5GUI as menu5
 import DisplayHalamanProduk.Menu6GUI as menu6
 import psycopg2
 
-OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\mainset\Documents\Semester 5\RPL\TubesRPL\img")
+# OUTPUT_PATH = Path(__file__).parent
+# ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\mainset\Documents\Semester 5\RPL\TubesRPL\img")
 
-def relative_to_assets(path: str) -> Path:
-    return ASSETS_PATH / Path(path)
+# def relative_to_assets(path: str) -> Path:
+#     return ASSETS_PATH / Path(path)
 
 class DisplayMenuUI(tk.Tk):
     def __init__(roo):
@@ -52,7 +52,7 @@ class DisplayMenuUI(tk.Tk):
                 bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
-                command=menu1.DisplayMenu1GUI,
+                command=menu1.Menu1GUI,
                 relief="flat"
             )
             button_10.place(
@@ -68,7 +68,7 @@ class DisplayMenuUI(tk.Tk):
                 bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
-                command=menu3.DisplayMenu3GUI,
+                command=menu3.Menu3GUI,
                 relief="flat"
             )
             button_11.place(
@@ -85,7 +85,7 @@ class DisplayMenuUI(tk.Tk):
                 bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
-                command=menu4.DisplayMenu4GUI,
+                command=menu4.Menu4GUI,
                 relief="flat"
             )
             button_12.place(
@@ -101,7 +101,7 @@ class DisplayMenuUI(tk.Tk):
                 bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
-                command=menu5.DisplayMenu5GUI,
+                command=menu5.Menu5GUI,
                 relief="flat"
             )
             button_13.place(
@@ -118,7 +118,7 @@ class DisplayMenuUI(tk.Tk):
                 bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
-                command=menu2.DisplayMenu2GUI,
+                command=menu2.Menu2GUI,
                 relief="flat"
             )
             button_14.place(
@@ -135,7 +135,7 @@ class DisplayMenuUI(tk.Tk):
                 bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
-                command=menu6.DisplayMenu6GUI,
+                command=menu6.Menu6GUI,
                 relief="flat"
             )
             button_15.place(
