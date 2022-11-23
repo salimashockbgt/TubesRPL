@@ -2,16 +2,17 @@ import tkinter as tk
 from tkinter import *
 from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
-
+import tkinter.font as tkFont
 import DisplayHalamanProduk.Menu1GUI as menu1
 import DisplayHalamanProduk.Menu2GUI as menu2
 import DisplayHalamanProduk.Menu3GUI as menu3
 import DisplayHalamanProduk.Menu4GUI as menu4
 import DisplayHalamanProduk.Menu5GUI as menu5
 import DisplayHalamanProduk.Menu6GUI as menu6
+import psycopg2
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\Vito2\Documents\vito\ITB\Semester 5\RPL\TubesRPL\img")
+ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\mainset\Documents\Semester 5\RPL\TubesRPL\img")
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
@@ -51,7 +52,7 @@ class DisplayMenuUI(tk.Tk):
                 bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
-                command=menu1.Menu1GUI,
+                command=menu1.DisplayMenu1GUI,
                 relief="flat"
             )
             button_10.place(
@@ -67,7 +68,7 @@ class DisplayMenuUI(tk.Tk):
                 bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
-                command=menu3.Menu3GUI,
+                command=menu3.DisplayMenu3GUI,
                 relief="flat"
             )
             button_11.place(
@@ -84,7 +85,7 @@ class DisplayMenuUI(tk.Tk):
                 bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
-                command=menu4.Menu4GUI,
+                command=menu4.DisplayMenu4GUI,
                 relief="flat"
             )
             button_12.place(
@@ -100,7 +101,7 @@ class DisplayMenuUI(tk.Tk):
                 bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
-                command=menu5.Menu5GUI,
+                command=menu5.DisplayMenu5GUI,
                 relief="flat"
             )
             button_13.place(
@@ -117,7 +118,7 @@ class DisplayMenuUI(tk.Tk):
                 bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
-                command=menu2.Menu2GUI,
+                command=menu2.DisplayMenu2GUI,
                 relief="flat"
             )
             button_14.place(
@@ -134,7 +135,7 @@ class DisplayMenuUI(tk.Tk):
                 bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
-                command=menu6.Menu6GUI,
+                command=menu6.DisplayMenu6GUI,
                 relief="flat"
             )
             button_15.place(
@@ -144,24 +145,7 @@ class DisplayMenuUI(tk.Tk):
                 height=18.0
             )
 
-            
-            # button_16 = Button(
-            #     roo,
-            #     text='cari',
-            #     bg= '#FBB43C',
-            #     borderwidth=0,
-            #     highlightthickness=0,
-            #     command=lambda: print("button_16 clicked"),
-            #     relief="flat"
-            # )
-            # button_16.place(
-            #     x=840.0,
-            #     y=189.0,
-            #     width=78.0,
-            #     height=53.02325439453125
-            # )
 
-            
             button_17 = Button(
                 roo,
                 text='Back',
@@ -178,44 +162,6 @@ class DisplayMenuUI(tk.Tk):
                 height=53.02325439453125
             )
 
-            # entry_2 = Button(
-            #     roo,
-            #     text='',
-            #     bg= '#FBB43C',
-            #     borderwidth=0,
-            #     highlightthickness=0,
-            #     command=lambda: roo.destroy(),
-            #     relief="flat"
-            # )
-            # entry_2.place(
-            #     x=457.0,
-            #     y=189.0,
-            #     width=366.0,
-            #     height=51.02325439453125
-            # )
-
-            # entry_image_2 = PhotoImage(
-            #     file=relative_to_assets("entry_2.png"))
-            # entry_bg_2 = canvas.create_image(
-            #     640.0,
-            #     215.51162719726562,
-            #     image=entry_image_2,
-            #     command=search.Entry,
-            #     relief="flat"
-            # )
-            # entry_2 = Entry(
-            #     bd=0,
-            #     bg="#FFFFFF",
-            #     fg="#000716",
-            #     highlightthickness=0
-            # )
-            # entry_2.place(
-            #     x=457.0,
-            #     y=189.0,
-            #     width=366.0,
-            #     height=51.02325439453125
-            # )
-    
             #Update the listbox
             def update(data):
                 my_list.delete(0, END)
@@ -254,9 +200,6 @@ class DisplayMenuUI(tk.Tk):
                 elif (str(my_entry.get()) == "Es Teh Manis/Teh manis"):
                     menu6.Menu6GUI()
     
-
-            # my_label = Label(roo, text="Start Typing...", font=("Helvetica", 10), fg="grey")
-            # my_label.pack(pady=10)
             my_entry=Entry(roo, font=("Helvetica", 20))
             my_entry.pack()
             my_list = Listbox(roo, width=50)
@@ -275,6 +218,45 @@ class DisplayMenuUI(tk.Tk):
 
             #Create a binding on the entry box
             my_entry.bind("<KeyRelease>", check)
+            
+            #program
+            def getMenu():
+                    try:
+                        return psycopg2.connect(
+                            database="DataRestoran",
+                            user="postgres",
+                            password="123",
+                            host="127.0.0.1",
+                            port=5432,
+                        )
+                    except:
+                        return False
+            conn = getMenu()
+            cursor = conn.cursor()
+            query = 'SELECT id_barang, nama_barang, harga_barang FROM datamenurestoran;'
+            cursor.execute(query)
+            def table(listbox):  #membuat tabel
+                for i in range(0,total_rows):
+                    for j in range(total_columns):
+                        e =Label(listbox, width=25, fg='#3d8f17', #lebar isi tabel
+                                font=('Times', 10, 'bold'), text=rows[i][j], borderwidth=1, relief="groove")
+                        e.grid(row=i+1, column=j)
+            rows = cursor.fetchall()
+            total_rows = len(rows)
+            total_columns = len(rows[0])
+
+            listbox = Listbox(roo, width=10, height=5)  #kotak batasan GUI
+            listbox["borderwidth"] = "1px"
+            ft = tkFont.Font(family='Times', size=20)
+            listbox["font"] = ft
+            listbox["fg"] = "#000"
+            listbox["justify"] = "left"
+            listbox.place(x=200, y=322, width=540, height=135) #batas buat kotak yang diisi tabel disesuaikan
+            header=['ID', 'Nama Menu', 'Harga'] #judul data
+            for k in range(3):
+                e =Label(listbox, width=25, fg='#e27013',font=('Times', 10, 'bold'), text=header[k], borderwidth=1, relief="groove") #lebar judul tabel
+                e.grid(row=0, column=k)
+            table(listbox) #ubah data jadi tabel
             
             roo.resizable(False, False)
             roo.mainloop()
