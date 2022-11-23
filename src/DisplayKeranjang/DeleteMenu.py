@@ -21,7 +21,5 @@ def deleteMenu():
     except (Exception, psycopg2.Error) as error:
         print("Error in Delete operation", error)
 
-
-
 #test
 #deleteMenu()
