@@ -5,8 +5,14 @@ MyFood merupakan aplikasi pemesanan makanan di restoran yang bertujuan untuk mem
 
 
 *Cara Menjalankan Aplikasi :*
-1. Mengubah password pgAdmin dan password server postgreSQL menjadi 123 
-2. Membuka folder src lalu run program melalui file Main.py
+1. Mengunduh file DataRestoran.sql pada master branch folder /src/db
+2. Membuat database yang bernama DataRestoran pada postgreSQL, lalu mengimport file DataRestoran.sql pada database DataRestoran
+3. Mengubah pengaturan server postgreSQL menjadi sebagai berikut:
+         user="postgres",
+         password="123",
+         host="127.0.0.1",
+         port=5432
+4. Membuka folder src pada master branch lalu run program melalui file Main.py
 
 *Modul terimpementasikan:*
 1. Modul Menu (DisplayMenuUI)
