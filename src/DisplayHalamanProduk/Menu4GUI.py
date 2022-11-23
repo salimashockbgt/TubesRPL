@@ -37,6 +37,7 @@ class Menu4GUI(tk.Tk):
 
             paketAyam_jumlah = Label(roo, text="Jumlah\n", font=("Arial", 10, "bold"))
             paketAyam_jumlah.place(x=770, y=570) # letaknya masih asal
+        
 
             curr = StringVar(value='2')
             spbox = Spinbox(roo, from_=0, to=10, width=5)
@@ -52,12 +53,12 @@ class Menu4GUI(tk.Tk):
             #  button balik ke menu
             buttonback = Button(roo, text="Kembali ke Menu", command=display.DisplayMenuUI, bg= '#FBB43C')
             buttonback.pack()
-            buttonback.place(anchor='center', relx=0.45, rely=0.85)
+            buttonback.place(anchor='center', relx=0.45, rely=0.80)
 
             #  button balik ke keranjang
             buttonkeranjang = Button(roo, text="Lihat Keranjang", command=keranjang.DisplayKeranjangUI, bg= '#FBB43C')
             buttonkeranjang.pack()
-            buttonkeranjang.place(anchor='center', relx=0.55, rely=0.85)
+            buttonkeranjang.place(anchor='center', relx=0.55, rely=0.80)
 
             roo.resizable(False, False)
             roo.mainloop()

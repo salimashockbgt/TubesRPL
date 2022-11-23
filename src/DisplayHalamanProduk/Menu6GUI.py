@@ -55,12 +55,12 @@ class Menu6GUI(tk.Tk):
             #  button balik ke menu
             buttonback = Button(roo, text="Kembali ke Menu", command=display.DisplayMenuUI, bg= '#FBB43C')
             buttonback.pack()
-            buttonback.place(anchor='center', relx=0.45, rely=0.85)
+            buttonback.place(anchor='center', relx=0.45, rely=0.80)
 
             #  button balik ke keranjang
             buttonkeranjang = Button(roo, text="Lihat Keranjang", command=keranjang.DisplayKeranjangUI, bg= '#FBB43C')
             buttonkeranjang.pack()
-            buttonkeranjang.place(anchor='center', relx=0.55, rely=0.85)
+            buttonkeranjang.place(anchor='center', relx=0.55, rely=0.80)
 
             roo.resizable(False, False)
             roo.mainloop()
