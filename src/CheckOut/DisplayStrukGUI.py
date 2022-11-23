@@ -27,7 +27,7 @@ class DisplayStrukGUI(tk.Tk):
             texttotalharga.place(anchor='center', relx=0.5, rely=0.7)
             
             #label harga sementara total harga pesanan
-            biaya = Label(roo, text="Rp150000", fg='#e27013', font=("Times", 20, "bold"))
+            biaya = Label(roo, text="Rp10000.0", fg='#e27013', font=("Times", 20, "bold"))
             biaya.place(anchor='center', relx=0.5, rely=0.75)
             
             #label selamat menikmati
