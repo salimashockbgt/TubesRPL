@@ -1,6 +1,6 @@
 import psycopg2
 
-def deleteMenu():
+def DeleteMenu():
     try:
         connection = psycopg2.connect(
                     database="DataRestoran",
@@ -22,4 +22,4 @@ def deleteMenu():
         print("Error in Delete operation", error)
 
 #test
-#deleteMenu()
+#DeleteMenu()
