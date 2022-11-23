@@ -4,6 +4,8 @@ import tkinter.font as tkFont
 import psycopg2
 from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
+import DisplayMenu.DisplayMenuUI as display
+import CheckOut.DisplayStrukUI.py as struk
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"../img")
@@ -40,14 +42,14 @@ class DisplayKeranjangGUI(tk.Tk):
                 fill="#000000",
                 font=("OpenSansRoman Bold", 40 * -1)
             )
-
-            button_image_3 = PhotoImage(
-                file=relative_to_assets("button_3.png"))
+            
             button_3 = Button(
-                image=button_image_3,
+                roo,
+                text='Kembali ke Menu',
+                bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
-                command=lambda: print("button_3 clicked"),
+                command=display.DisplayMenuUI,
                 relief="flat"
             )
             button_3.place(
@@ -56,14 +58,14 @@ class DisplayKeranjangGUI(tk.Tk):
                 width=180.0,
                 height=40.0
             )
-
-            button_image_4 = PhotoImage(
-                file=relative_to_assets("button_4.png"))
+            
             button_4 = Button(
-                image=button_image_4,
+                roo,
+                text='CheckOut',
+                bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
-                command=lambda: print("button_4 clicked"),
+                command=struk.DisplayStrukUI,
                 relief="flat"
             )
             button_4.place(
