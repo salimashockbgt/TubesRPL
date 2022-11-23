@@ -12,7 +12,7 @@ def deleteMenu(id_barang):
         cursor = connection.cursor()
 
         # Update single record now
-        sql_delete_query = """Delete from datapesanancustomer where id_barang = %s"""
+        sql_delete_query = "DELETE FROM datapesanancustomer WHERE id_barang = %s"
         cursor.execute(sql_delete_query, (id_barang,))
         connection.commit()
         count = cursor.rowcount

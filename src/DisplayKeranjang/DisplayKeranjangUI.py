@@ -58,23 +58,23 @@ class DisplayKeranjangUI(tk.Tk):
             def table(listbox):  #membuat tabel
                 for i in range(0,total_rows):
                     for j in range(total_columns):
-                        e =Label(listbox, width=50, fg='#3d8f17', #lebar isi tabel
+                        e =Label(listbox, width=25, fg='#3d8f17', #lebar isi tabel
                                 font=('Times', 10, 'bold'), text=rows[i][j], borderwidth=1, relief="groove")
                         e.grid(row=i+1, column=j)
             rows = cursor.fetchall()
             total_rows = len(rows)
             total_columns = len(rows[0])
 
-            listbox = Listbox(roo, width=10, height=5, bg='#f0f0f0')  #kotak batasan GUI
-            listbox["borderwidth"] = "0px"
+            listbox = Listbox(roo, width=10, height=5)  #kotak batasan GUI
+            listbox["borderwidth"] = "1px"
             ft = tkFont.Font(family='Times', size=20)
             listbox["font"] = ft
             listbox["fg"] = "#000"
             listbox["justify"] = "left"
-            listbox.place(x=85, y=90, width=1420, height=140) #batas buat kotak yang diisi tabel disesuaikan
+            listbox.place(x=200, y=322, width=710, height=100) #batas buat kotak yang diisi tabel disesuaikan
             header=['ID', 'Jumlah', 'Nama Menu', 'Harga'] #judul data
             for k in range(4):
-                e =Label(listbox, width=50, fg='#e27013',font=('Times', 10, 'bold'), text=header[k], borderwidth=1, relief="groove") #lebar judul tabel
+                e =Label(listbox, width=25, fg='#e27013',font=('Times', 10, 'bold'), text=header[k], borderwidth=1, relief="groove") #lebar judul tabel
                 e.grid(row=0, column=k)
             table(listbox) #ubah data jadi tabel
 
