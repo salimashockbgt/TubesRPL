@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import *
 from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
-import DisplayMenu.DisplayMenuGUI as display
+import DisplayMenu.DisplayMenuUI as display
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"../img")

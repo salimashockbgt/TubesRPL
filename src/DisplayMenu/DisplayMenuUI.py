@@ -2,6 +2,12 @@ import tkinter as tk
 from tkinter import *
 from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
+import DisplayHalamanProduk.Menu1GUI as menu1
+import DisplayHalamanProduk.Menu2GUI as menu2
+import DisplayHalamanProduk.Menu3GUI as menu3
+import DisplayHalamanProduk.Menu4GUI as menu4
+import DisplayHalamanProduk.Menu5GUI as menu5
+import DisplayHalamanProduk.Menu6GUI as menu6
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"../img")
@@ -44,7 +50,7 @@ class DisplayMenuGUI(tk.Tk):
                 image=button_image_10,
                 borderwidth=0,
                 highlightthickness=0,
-                command=lambda: print("button_10 clicked"),
+                command=menu1.DisplayMenu1GUI,
                 relief="flat"
             )
             button_10.place(
@@ -60,7 +66,7 @@ class DisplayMenuGUI(tk.Tk):
                 image=button_image_11,
                 borderwidth=0,
                 highlightthickness=0,
-                command=lambda: print("button_11 clicked"),
+                command=menu3.DisplayMenu3GUI,
                 relief="flat"
             )
             button_11.place(
@@ -76,7 +82,7 @@ class DisplayMenuGUI(tk.Tk):
                 image=button_image_12,
                 borderwidth=0,
                 highlightthickness=0,
-                command=lambda: print("button_12 clicked"),
+                command=menu4.DisplayMenu4GUI,
                 relief="flat"
             )
             button_12.place(
@@ -92,7 +98,7 @@ class DisplayMenuGUI(tk.Tk):
                 image=button_image_13,
                 borderwidth=0,
                 highlightthickness=0,
-                command=lambda: print("button_13 clicked"),
+                command=menu5.DisplayMenu5GUI,
                 relief="flat"
             )
             button_13.place(
@@ -108,7 +114,7 @@ class DisplayMenuGUI(tk.Tk):
                 image=button_image_14,
                 borderwidth=0,
                 highlightthickness=0,
-                command=lambda: print("button_14 clicked"),
+                command=menu2.DisplayMenu2GUI,
                 relief="flat"
             )
             button_14.place(
@@ -124,7 +130,7 @@ class DisplayMenuGUI(tk.Tk):
                 image=button_image_15,
                 borderwidth=0,
                 highlightthickness=0,
-                command=lambda: print("button_15 clicked"),
+                command=menu6.DisplayMenu6GUI,
                 relief="flat"
             )
             button_15.place(
@@ -156,7 +162,7 @@ class DisplayMenuGUI(tk.Tk):
                 image=button_image_17,
                 borderwidth=0,
                 highlightthickness=0,
-                command=lambda: print("button_17 clicked"),
+                command=lambda: roo.destroy(),
                 relief="flat"
             )
             button_17.place(
