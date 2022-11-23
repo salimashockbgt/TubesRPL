@@ -38,11 +38,12 @@ class Menu2GUI(tk.Tk):
             paketAyam_jumlah = Label(roo, text="Jumlah\n", font=("Arial", 10, "bold"))
             paketAyam_jumlah.place(x=770, y=570)
 
+            curr = StringVar(value='2')
             spbox = Spinbox(roo, from_=0, to=10, width=5)
             spbox.pack()
             spbox.place(x=775, y=595)
         
-            addtocart = TambahProduk(2, spbox.get(), "Nasi Timbel", 25000.0)
+            addtocart = TambahProduk(2, curr.get(), "Nasi Timbel", 25000.0)
             # button tambah pesanan
             buttonTambahPesanan = Button(roo, text="Tambahkan ke Pesanan",command=addtocart, bg= '#FBB43C')
             buttonTambahPesanan.pack()

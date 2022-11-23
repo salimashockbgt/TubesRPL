@@ -23,10 +23,6 @@ class Menu4GUI(tk.Tk):
             roo.geometry("1280x832")
             roo.title("Menu4")
 
-            spbox = Spinbox(roo, from_=0, to=10, width=5)
-            spbox.pack()
-            spbox.place(x=775, y=595)
-
             paketAyam_name = Label(roo, text="Teh Panas\n", font=("Arial", 12, "bold"))
             paketAyam_name.place(x=600, y=470) # letaknya masih asal
 
@@ -41,8 +37,13 @@ class Menu4GUI(tk.Tk):
 
             paketAyam_jumlah = Label(roo, text="Jumlah\n", font=("Arial", 10, "bold"))
             paketAyam_jumlah.place(x=770, y=570) # letaknya masih asal
+
+            curr = StringVar(value='2')
+            spbox = Spinbox(roo, from_=0, to=10, width=5)
+            spbox.pack()
+            spbox.place(x=775, y=595)
                     
-            addtocart = TambahProduk(4, spbox.get(), "Teh Panas", 2000.0)
+            addtocart = TambahProduk(4, curr.get(), "Teh Panas", 2000.0)
             # button tambah pesanan
             buttonTambahPesanan = Button(roo, text="Tambahkan ke Pesanan",command=addtocart, bg= '#FBB43C')
             buttonTambahPesanan.pack()

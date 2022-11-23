@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import *
 import tkinter.font as tkFont
-import psycopg2
 from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 import DisplayMenu.DisplayMenuUI as display
@@ -54,18 +53,17 @@ class Menu1GUI(tk.Tk):
             #     print()
             # menu1box = Spinbox(roo, from_=0, to=10, width=5, command= print(menu1box.get()))
             # menu1box.place(x=775, y=595)
-
-            current_value = tk.StringVar(value=0)
-            spbox = Spinbox(roo, from_=0, to=10, width=5, textvariable=current_value, wrap=True)
-            spbox.pack()
+            
+            curr = StringVar(value='2')
+            spbox = Spinbox(roo, from_=0, to=10, width=5)
+            spbox.grid()
             spbox.place(x=775, y=595)
-        
-            addtocart = TambahProduk(1, current_value.get(), "Nasi Goreng Ayam", 25000.0)
+            addtocart = TambahProduk(1, curr.get(), "Nasi Goreng Ayam", 25000.0)
+
             # button tambah pesanan
             buttonTambahPesanan = Button(roo, text="Tambahkan ke Pesanan",command=addtocart, bg= '#FBB43C')
             buttonTambahPesanan.pack()
             buttonTambahPesanan.place(anchor='center', relx=0.5, rely=0.75)
-
             #  button balik ke menu
             buttonback = Button(roo, text="Kembali ke Menu", command=display.DisplayMenuUI, bg= '#FBB43C')
             buttonback.pack()
@@ -79,4 +77,5 @@ class Menu1GUI(tk.Tk):
             roo.resizable(False, False)
             roo.mainloop()
         displayMenu1()
-        
+
+
