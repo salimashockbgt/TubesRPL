@@ -1,6 +1,6 @@
 import psycopg2
 
-def deleteMenu(id_barang):
+def deleteMenu():
     try:
         connection = psycopg2.connect(
                     database="DataRestoran",
@@ -12,8 +12,8 @@ def deleteMenu(id_barang):
         cursor = connection.cursor()
 
         # Update single record now
-        sql_delete_query = "DELETE FROM datapesanancustomer WHERE id_barang = %s"
-        cursor.execute(sql_delete_query, (id_barang,))
+        sql_delete_query = "DELETE FROM datapesanancustomer"
+        cursor.execute(sql_delete_query)
         connection.commit()
         count = cursor.rowcount
         print(count, "Record deleted successfully ")
@@ -21,4 +21,5 @@ def deleteMenu(id_barang):
     except (Exception, psycopg2.Error) as error:
         print("Error in Delete operation", error)
 
-#deleteMenu(1)
+#test
+#deleteMenu()
