@@ -22,7 +22,9 @@ Agnes Tamara - 18220010
 2. Tampilan Halaman Setiap Produk
 
 Christopher Jie - 18220052
-1. Tampilan Daftar Menu Restoran dari Database
+1. Membuat database datamenurestoran dan datapesanancustomer
+2. Tampilan Daftar Menu Restoran dari Database
+3. Tampilan Daftar Menu Restoran GUI
 
 Salimatussholati Az Zahra - 18220054
 1. Fitur Pencarian Menu
