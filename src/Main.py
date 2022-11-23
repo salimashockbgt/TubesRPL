@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import *
 from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
+import DisplayMenu.DisplayMenuGUI as display
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"../img")
@@ -53,7 +54,7 @@ class Main(tk.Tk):
             image=button_image_1,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: print("button_1 clicked"),
+            command=display.DisplayMenuGUI,
             relief="flat"
         )
         button_1.place(
@@ -69,7 +70,7 @@ class Main(tk.Tk):
             image=button_image_2,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: print("button_2 clicked"),
+            command=lambda: root.destroy(),
             relief="flat"
         )
         button_2.place(
