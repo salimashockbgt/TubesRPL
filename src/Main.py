@@ -1,43 +1,86 @@
 import tkinter as tk
 from tkinter import *
-import DisplayMenu.DisplayMenuGUI as display
-import DisplayKeranjang.DisplayKeranjangGUI as keranjang
+from pathlib import Path
+from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 
-#halaman utama
+OUTPUT_PATH = Path(__file__).parent
+ASSETS_PATH = OUTPUT_PATH / Path(r"../img")
+
+def relative_to_assets(path: str) -> Path:
+    return ASSETS_PATH / Path(path)
+
 class Main(tk.Tk):
-    #constructor
     def __init__(root):
         super().__init__()
-        #framing
-        root.geometry("2000x2000")
+        
+        root.geometry("1280x832")
         root.title("HALAMAN UTAMA")
+        root.configure(bg = "#FFFFFF")
 
-        frame = Canvas(root, height=100, width=100)
-        frame.pack()
-        frame.place(anchor='center', relx=0.5, rely=0.5)
-        Tops = Frame(root,width = 1600,height=50,relief=SUNKEN)
-        Tops.pack(side=TOP)
 
-        logo = Label(Tops, text= "MYFOOD", font=("Times", 10, "bold"))
-        judul = Label(Tops, text="SELAMAT DATANG DI MYFOOD!!! ", font=("Times", 20, "bold"), fg = "#489012")
-        gap = Label (frame, text=" ")
+        canvas = Canvas(
+            root,
+            bg = "#FFFFFF",
+            height = 832,
+            width = 1280,
+            bd = 0,
+            highlightthickness = 0,
+            relief = "ridge"
+        )
 
-        #tombol bisa ditambah buat requirement baru
-        daftarmenu=Button(frame, padx=16,pady=16,bd=4, font=('Times', 16,'bold'), text="Lihat Menu", bg="Blue", command = display.DisplayMenuGUI)
-        daftarkeranjang=Button(frame, padx=16,pady=16,bd=4, font=('Times', 16,'bold'), text="Lihat Keranjang", bg="Blue", command = keranjang.DisplayKeranjangGUI)
-        exit=Button(frame, padx=16,pady=16,bd=4, font=('Times', 16,'bold'), text="Exit", bg="Blue", command = lambda: root.quit())
+        canvas.place(x = 0, y = 0)
+        canvas.create_text(
+            373.0,
+            118.0,
+            anchor="nw",
+            text="Selamat Datang di MyFood",
+            fill="#000000",
+            font=("OpenSansRoman Bold", 40 * -1)
+        )
 
-        #jangan lupa digrid setelah tambah label/button
-        judul.grid(row=0,column=0)
-        logo.grid(row=1,column=0)
-        gap.grid(row=1,column=0)
-        daftarmenu.grid(row=2, column=0)
-        daftarkeranjang.grid(row=3, column=0)
-        exit.grid(row=7, column=0)
+        canvas.create_text(
+            603.0,
+            179.0,
+            anchor="nw",
+            text="MyFood",
+            fill="#000000",
+            font=("OpenSansRoman Regular", 20 * -1)
+        )
 
+        button_image_1 = PhotoImage(
+            file=relative_to_assets("button_1.png"))
+        button_1 = Button(
+            image=button_image_1,
+            borderwidth=0,
+            highlightthickness=0,
+            command=lambda: print("button_1 clicked"),
+            relief="flat"
+        )
+        button_1.place(
+            x=522.0,
+            y=302.0,
+            width=238.60464477539062,
+            height=53.02325439453125
+        )
+
+        button_image_2 = PhotoImage(
+            file=relative_to_assets("button_2.png"))
+        button_2 = Button(
+            image=button_image_2,
+            borderwidth=0,
+            highlightthickness=0,
+            command=lambda: print("button_2 clicked"),
+            relief="flat"
+        )
+        button_2.place(
+            x=522.0,
+            y=389.4883728027344,
+            width=238.60464477539062,
+            height=53.02325439453125
+        )
+        root.resizable(False, False)
         root.mainloop()
 
-#test
 if __name__ == "__main__":
     app = Main()
     Main.mainloop()
