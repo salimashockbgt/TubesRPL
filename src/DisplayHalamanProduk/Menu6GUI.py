@@ -9,7 +9,7 @@ ASSETS_PATH = OUTPUT_PATH / Path(r"../img")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-class DisplayMenu5GUI(tk.Tk):
+class DisplayMenu6GUI(tk.Tk):
     def __init__(roo):
         super().__init__()
 

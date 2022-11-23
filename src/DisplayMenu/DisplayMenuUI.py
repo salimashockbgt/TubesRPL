@@ -2,24 +2,26 @@ import tkinter as tk
 from tkinter import *
 from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
+import tkinter.font as tkFont
 import DisplayHalamanProduk.Menu1GUI as menu1
 import DisplayHalamanProduk.Menu2GUI as menu2
 import DisplayHalamanProduk.Menu3GUI as menu3
 import DisplayHalamanProduk.Menu4GUI as menu4
 import DisplayHalamanProduk.Menu5GUI as menu5
 import DisplayHalamanProduk.Menu6GUI as menu6
+import psycopg2
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"../img")
+ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\mainset\Documents\Semester 5\RPL\TubesRPL\img")
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-class DisplayMenuGUI(tk.Tk):
+class DisplayMenuUI(tk.Tk):
     def __init__(roo):
         super().__init__()
 
-        def displayMenu():
+        def displayMenuUI():
             roo.geometry("1280x832")
             roo.title("Menu")
             roo.configure(bg = "#FFFFFF")
@@ -43,11 +45,11 @@ class DisplayMenuGUI(tk.Tk):
                 fill="#000000",
                 font=("OpenSansRoman Bold", 40 * -1)
             )
-
-            button_image_10 = PhotoImage(
-                file=relative_to_assets("button_10.png"))
+            
             button_10 = Button(
-                image=button_image_10,
+                roo,
+                text='1',
+                bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
                 command=menu1.DisplayMenu1GUI,
@@ -60,10 +62,10 @@ class DisplayMenuGUI(tk.Tk):
                 height=18.0
             )
 
-            button_image_11 = PhotoImage(
-                file=relative_to_assets("button_11.png"))
             button_11 = Button(
-                image=button_image_11,
+                roo,
+                text='3',
+                bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
                 command=menu3.DisplayMenu3GUI,
@@ -76,10 +78,11 @@ class DisplayMenuGUI(tk.Tk):
                 height=18.0
             )
 
-            button_image_12 = PhotoImage(
-                file=relative_to_assets("button_12.png"))
+            
             button_12 = Button(
-                image=button_image_12,
+                roo,
+                text='4',
+                bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
                 command=menu4.DisplayMenu4GUI,
@@ -92,10 +95,10 @@ class DisplayMenuGUI(tk.Tk):
                 height=18.0
             )
 
-            button_image_13 = PhotoImage(
-                file=relative_to_assets("button_13.png"))
             button_13 = Button(
-                image=button_image_13,
+                roo,
+                text='5',
+                bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
                 command=menu5.DisplayMenu5GUI,
@@ -108,10 +111,11 @@ class DisplayMenuGUI(tk.Tk):
                 height=18.0
             )
 
-            button_image_14 = PhotoImage(
-                file=relative_to_assets("button_14.png"))
+            
             button_14 = Button(
-                image=button_image_14,
+                roo,
+                text='2',
+                bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
                 command=menu2.DisplayMenu2GUI,
@@ -124,10 +128,11 @@ class DisplayMenuGUI(tk.Tk):
                 height=18.0
             )
 
-            button_image_15 = PhotoImage(
-                file=relative_to_assets("button_15.png"))
+           
             button_15 = Button(
-                image=button_image_15,
+                roo,
+                text='6',
+                bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
                 command=menu6.DisplayMenu6GUI,
@@ -140,26 +145,11 @@ class DisplayMenuGUI(tk.Tk):
                 height=18.0
             )
 
-            button_image_16 = PhotoImage(
-                file=relative_to_assets("button_16.png"))
-            button_16 = Button(
-                image=button_image_16,
-                borderwidth=0,
-                highlightthickness=0,
-                command=lambda: print("button_16 clicked"),
-                relief="flat"
-            )
-            button_16.place(
-                x=840.0,
-                y=189.0,
-                width=78.0,
-                height=53.02325439453125
-            )
 
-            button_image_17 = PhotoImage(
-                file=relative_to_assets("button_17.png"))
             button_17 = Button(
-                image=button_image_17,
+                roo,
+                text='Back',
+                bg= '#FBB43C',
                 borderwidth=0,
                 highlightthickness=0,
                 command=lambda: roo.destroy(),
@@ -172,25 +162,102 @@ class DisplayMenuGUI(tk.Tk):
                 height=53.02325439453125
             )
 
-            entry_image_2 = PhotoImage(
-                file=relative_to_assets("entry_2.png"))
-            entry_bg_2 = canvas.create_image(
-                640.0,
-                215.51162719726562,
-                image=entry_image_2
-            )
-            entry_2 = Entry(
-                bd=0,
-                bg="#FFFFFF",
-                fg="#000716",
-                highlightthickness=0
-            )
-            entry_2.place(
-                x=457.0,
-                y=189.0,
-                width=366.0,
-                height=51.02325439453125
-            )
+            #Update the listbox
+            def update(data):
+                my_list.delete(0, END)
+
+                for item in data:
+                    my_list.insert(END, item)
+            #Update entry box with listbox clicked
+            def fillout(event):
+                my_entry.delete(0,END)
+                #add clicked list item to entry box
+                my_entry.insert(0, my_list.get(ACTIVE))
+            #Create function to check entry vs listboc
+            def check(event):
+            # Grab what was typed
+                typed = my_entry.get()
+                if typed == '':
+                    data = menu
+                else:
+                    data = []
+                for item in menu:
+                    if str(typed.lower()) in str(item.lower()):
+                        data.append(item)
+                #update our listbox with selected items
+                update(data)
+            def selectmenu():
+                if (str(my_entry.get()) == "Nasi Goreng Ayam"):
+                    menu1.Menu1GUI()
+                elif (str(my_entry.get()) ==  "Nasi Timbel"):
+                    menu2.Menu2GUI()
+                elif (str(my_entry.get()) == "Nasi Uduk"):
+                    menu3.Menu3GUI()
+                elif (str(my_entry.get()) == "Teh Panas"):
+                    menu4.Menu4GUI()
+                elif (str(my_entry.get()) == "Es Teh"):
+                    menu5.Menu5GUI()
+                elif (str(my_entry.get()) == "Es Teh Manis/Teh manis"):
+                    menu6.Menu6GUI()
+    
+            my_entry=Entry(roo, font=("Helvetica", 20))
+            my_entry.pack()
+            my_list = Listbox(roo, width=50)
+            my_list.pack(pady=40)
+            tombolcari=Button(canvas, padx=16,pady=16,bd=4, font=('Times', 16,'bold'), text="Cari", bg="Orange", command = selectmenu)
+            tombolcari.grid(row=1, column=0)
+            tombolcari.pack(padx=900, pady=70)
+
+
+            # Create a list of menu
+            menu = ["Nasi Goreng Ayam", "Nasi Timbel", "Nasi Uduk", "Teh Panas", "Es Teh", "Es Teh Manis/Teh manis"]
+            update(menu)
+
+            #Create a binding on the listbox onclick
+            my_list.bind("<<ListboxSelect>>", fillout)
+
+            #Create a binding on the entry box
+            my_entry.bind("<KeyRelease>", check)
+            
+            #program
+            def getMenu():
+                    try:
+                        return psycopg2.connect(
+                            database="DataRestoran",
+                            user="postgres",
+                            password="123",
+                            host="127.0.0.1",
+                            port=5432,
+                        )
+                    except:
+                        return False
+            conn = getMenu()
+            cursor = conn.cursor()
+            query = 'SELECT id_barang, nama_barang, harga_barang FROM datamenurestoran;'
+            cursor.execute(query)
+            def table(listbox):  #membuat tabel
+                for i in range(0,total_rows):
+                    for j in range(total_columns):
+                        e =Label(listbox, width=25, fg='#3d8f17', #lebar isi tabel
+                                font=('Times', 10, 'bold'), text=rows[i][j], borderwidth=1, relief="groove")
+                        e.grid(row=i+1, column=j)
+            rows = cursor.fetchall()
+            total_rows = len(rows)
+            total_columns = len(rows[0])
+
+            listbox = Listbox(roo, width=10, height=5)  #kotak batasan GUI
+            listbox["borderwidth"] = "1px"
+            ft = tkFont.Font(family='Times', size=20)
+            listbox["font"] = ft
+            listbox["fg"] = "#000"
+            listbox["justify"] = "left"
+            listbox.place(x=200, y=322, width=540, height=135) #batas buat kotak yang diisi tabel disesuaikan
+            header=['ID', 'Nama Menu', 'Harga'] #judul data
+            for k in range(3):
+                e =Label(listbox, width=25, fg='#e27013',font=('Times', 10, 'bold'), text=header[k], borderwidth=1, relief="groove") #lebar judul tabel
+                e.grid(row=0, column=k)
+            table(listbox) #ubah data jadi tabel
+            
             roo.resizable(False, False)
             roo.mainloop()
-        displayMenu()
+        displayMenuUI()

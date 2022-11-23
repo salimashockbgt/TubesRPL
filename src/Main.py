@@ -54,7 +54,7 @@ class Main(tk.Tk):
             image=button_image_1,
             borderwidth=0,
             highlightthickness=0,
-            command=display.DisplayMenuGUI,
+            command=display.DisplayMenuUI,
             relief="flat"
         )
         button_1.place(
