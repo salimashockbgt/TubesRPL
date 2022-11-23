@@ -42,4 +42,4 @@ Daftar Tabel :
 
 Tabel datamenurestoran(id_barang, nama_barang, deskripsi_barang, harga_barang)
 
-Tabel datapesanancustomer(id_barang, jumlah_barang, nama_barang, total_harga)
+Tabel datapesanancustomer(id_barang(foreign key), jumlah_barang, nama_barang, total_harga)
