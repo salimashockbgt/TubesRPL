@@ -79,14 +79,15 @@ class DisplayKeranjangUI(tk.Tk):
             table(listbox) #ubah data jadi tabel
 
             # Button
-            hapusMenu = Button(roo, text = "hapus menu",fg ='white', bg = 'blue') # command : HapusMenu()
-            hapusMenu.place(x = 725, y = 620)
+            hapusMenu = Button(roo, text = "Hapus Menu", bg= '#FBB43C') # command : HapusMenu()
+            hapusMenu.place(anchor='center', relx=0.5, rely=0.7)
 
-            BackToMenu = Button(roo, text = "kembali ke daftar menu",fg ='white', bg ='blue',command=Menu.DisplayMenuUI) # command : BackToMenu()
-            BackToMenu.place(x = 50, y = 675)
+            BackToMenu = Button(roo, text = "Kembali ke Menu", bg= '#FBB43C',command=Menu.DisplayMenuUI) # command : BackToMenu()
+            BackToMenu.place(anchor='center', relx=0.45, rely=0.80)
 
-            CheckOut = Button(roo, text = "checkout",fg ='white', bg ='blue', command= checkout.DisplayStrukGUI) # command : CheckOut()
-            CheckOut.place(x = 50, y = 720)
-
+            CheckOut = Button(roo, text = "Checkout", bg= '#FBB43C', command= checkout.DisplayStrukGUI) # command : CheckOut()
+            CheckOut.place(anchor='center', relx=0.55, rely=0.80)
+            
+            roo.resizable(False, False)
             roo.mainloop()
         displayKeranjang()

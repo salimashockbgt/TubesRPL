@@ -23,10 +23,6 @@ class Menu4GUI(tk.Tk):
             roo.geometry("1280x832")
             roo.title("Menu4")
 
-            spbox = Spinbox(roo, from_=0, to=10, width=5)
-            spbox.pack()
-            spbox.place(x=775, y=595)
-
             paketAyam_name = Label(roo, text="Teh Panas\n", font=("Arial", 12, "bold"))
             paketAyam_name.place(x=600, y=470) # letaknya masih asal
 
@@ -41,7 +37,11 @@ class Menu4GUI(tk.Tk):
 
             paketAyam_jumlah = Label(roo, text="Jumlah\n", font=("Arial", 10, "bold"))
             paketAyam_jumlah.place(x=770, y=570) # letaknya masih asal
-                    
+            
+            spbox = Spinbox(roo, from_=0, to=10, width=5)
+            spbox.pack()
+            spbox.place(x=775, y=595)    
+              
             addtocart = TambahProduk(4, spbox.get(), "Teh Panas", 2000.0)
             # button tambah pesanan
             buttonTambahPesanan = Button(roo, text="Tambahkan ke Pesanan",command=addtocart, bg= '#FBB43C')
@@ -51,12 +51,12 @@ class Menu4GUI(tk.Tk):
             #  button balik ke menu
             buttonback = Button(roo, text="Kembali ke Menu", command=display.DisplayMenuUI, bg= '#FBB43C')
             buttonback.pack()
-            buttonback.place(anchor='center', relx=0.45, rely=0.85)
+            buttonback.place(anchor='center', relx=0.45, rely=0.80)
 
             #  button balik ke keranjang
             buttonkeranjang = Button(roo, text="Lihat Keranjang", command=keranjang.DisplayKeranjangUI, bg= '#FBB43C')
             buttonkeranjang.pack()
-            buttonkeranjang.place(anchor='center', relx=0.55, rely=0.85)
+            buttonkeranjang.place(anchor='center', relx=0.55, rely=0.80)
 
             roo.resizable(False, False)
             roo.mainloop()
