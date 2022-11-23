@@ -6,6 +6,7 @@ from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 import DisplayMenu.DisplayMenuUI as Menu
 import CheckOut.DisplayStrukGUI as checkout
+import DisplayKeranjang.DeleteMenu as deleteMenu
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"../img")
@@ -79,7 +80,7 @@ class DisplayKeranjangUI(tk.Tk):
             table(listbox) #ubah data jadi tabel
 
             # Button
-            hapusMenu = Button(roo, text = "Hapus Menu", bg= '#FBB43C') # command : HapusMenu()
+            hapusMenu = Button(roo, text = "Hapus Menu", bg= '#FBB43C',command=deleteMenu.DeleteMenu) # command : HapusMenu()
             hapusMenu.place(anchor='center', relx=0.5, rely=0.7)
 
             BackToMenu = Button(roo, text = "Kembali ke Menu", bg= '#FBB43C',command=Menu.DisplayMenuUI) # command : BackToMenu()
