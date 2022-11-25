@@ -6,8 +6,7 @@ from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 import DisplayMenu.DisplayMenuUI as display
 import DisplayKeranjang.DisplayKeranjangUI as keranjang
-
-from DisplayHalamanProduk.TambahProduk import TambahProduk
+import DisplayHalamanProduk.TambahProduk as tambah
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"../img")
@@ -38,14 +37,13 @@ class Menu3GUI(tk.Tk):
             paketAyam_jumlah = Label(roo, text="Jumlah\n", font=("Arial", 10, "bold"))
             paketAyam_jumlah.place(x=770, y=570) # letaknya masih asal
 
-            curr = StringVar(value='2')
+            
             spbox = Spinbox(roo, from_=0, to=10, width=5)
-            spbox.pack()
             spbox.place(x=775, y=595)
                     
-            addtocart = TambahProduk(3, curr.get(), "Nasi Uduk", 25000.0)
+            
             # button tambah pesanan
-            buttonTambahPesanan = Button(roo, text="Tambahkan ke Pesanan",command=addtocart, bg= '#FBB43C')
+            buttonTambahPesanan = Button(roo, text="Tambahkan ke Pesanan",command=lambda jumlah_barang=spbox.get() : tambah.TambahProduk(3, jumlah_barang, "Nasi Uduk", 25000.0), bg= '#FBB43C')
             buttonTambahPesanan.pack()
             buttonTambahPesanan.place(anchor='center', relx=0.5, rely=0.75)
 

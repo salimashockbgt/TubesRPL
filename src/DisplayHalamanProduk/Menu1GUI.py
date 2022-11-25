@@ -2,11 +2,11 @@ import tkinter as tk
 from tkinter import *
 import tkinter.font as tkFont
 from pathlib import Path
+import psycopg2
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 import DisplayMenu.DisplayMenuUI as display
 import DisplayKeranjang.DisplayKeranjangUI as keranjang
-
-from DisplayHalamanProduk.TambahProduk import TambahProduk
+import DisplayHalamanProduk.TambahProduk as tambah
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"../img")
@@ -54,14 +54,11 @@ class Menu1GUI(tk.Tk):
             # menu1box = Spinbox(roo, from_=0, to=10, width=5, command= print(menu1box.get()))
             # menu1box.place(x=775, y=595)
             
-            curr = StringVar(value='2')
             spbox = Spinbox(roo, from_=0, to=10, width=5)
-            spbox.grid()
             spbox.place(x=775, y=595)
-            addtocart = TambahProduk(1, curr.get(), "Nasi Goreng Ayam", 25000.0)
 
             # button tambah pesanan
-            buttonTambahPesanan = Button(roo, text="Tambahkan ke Pesanan",command=addtocart, bg= '#FBB43C')
+            buttonTambahPesanan = Button(roo, text="Tambahkan ke Pesanan",command=lambda jumlah_barang=spbox.get() : tambah.TambahProduk('1',jumlah_barang,'Nasi Goreng Ayam',25000), bg= '#FBB43C')
             buttonTambahPesanan.pack()
             buttonTambahPesanan.place(anchor='center', relx=0.5, rely=0.75)
             #  button balik ke menu
