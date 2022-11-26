@@ -36,6 +36,7 @@ Christopher Jie - 18220052
 2. Tampilan Daftar Menu Restoran dari Database (DisplayMenuUI)
 3. Tampilan Daftar Menu Restoran GUI (DisplayMenuUI)
 4. Fitur tambah/kurang barang(DisplayHalamanProduk)
+5. Fitur total dan subtotal (Checkout)
 
 Salimatussholati Az Zahra - 18220054
 1. Fitur Pencarian Menu (DisplayMenuUI)
