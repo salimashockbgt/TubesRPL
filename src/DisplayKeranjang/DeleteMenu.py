@@ -1,4 +1,5 @@
 import psycopg2
+from tkinter import messagebox
 
 def DeleteMenu():
     try:
@@ -16,10 +17,10 @@ def DeleteMenu():
         cursor.execute(sql_delete_query)
         connection.commit()
         count = cursor.rowcount
-        print(count, "Record deleted successfully ")
+        messagebox.showinfo(count, "Record deleted successfully ")
 
     except (Exception, psycopg2.Error) as error:
-        print("Error in Delete operation", error)
+        messagebox.showinfo("Error in Delete operation", error)
 
 #test
 #DeleteMenu()

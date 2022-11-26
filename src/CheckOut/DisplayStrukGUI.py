@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import *
 import tkinter.font as tkFont
 import psycopg2
+from math import *
 
 class DisplayStrukGUI(tk.Tk):
     #constructor
@@ -25,11 +26,7 @@ class DisplayStrukGUI(tk.Tk):
             #label total harga pesanan
             texttotalharga = Label(roo, text="Total Harga Pesanan", font=("Times", 20, "bold"))
             texttotalharga.place(anchor='center', relx=0.5, rely=0.7)
-            
-            #label harga sementara total harga pesanan
-            biaya = Label(roo, text="Rp10000.0", fg='#e27013', font=("Times", 20, "bold"))
-            biaya.place(anchor='center', relx=0.5, rely=0.75)
-            
+
             #label selamat menikmati
             textslm = Label(roo, text="Selamat Menikmati", font=("Times", 15, "bold"))
             textslm.place(anchor='center', relx=0.5, rely=0.85)
@@ -48,7 +45,7 @@ class DisplayStrukGUI(tk.Tk):
                         return False
             conn = getMenu()
             cursor = conn.cursor()
-            query = 'SELECT * FROM datapesanancustomer;'
+            query = 'SELECT id_barang, jumlah_barang, nama_barang, harga_barang, (jumlah_barang*harga_barang) as total_harga FROM datapesanancustomer;'
             cursor.execute(query)
             
             #membuat tabel
@@ -68,13 +65,23 @@ class DisplayStrukGUI(tk.Tk):
             listbox["font"] = ft
             listbox["fg"] = "#e27013"
             listbox["justify"] = "left"
-            listbox.place(x=30, y=75, width=1140, height=200) #batas buat kotak yang diisi tabel disesuaikan
-            header=['ID', 'Jumlah', 'Nama Makanan', 'Harga Satuan'] #judul data
+            listbox.place(x=30, y=75, width=1500, height=200) #batas buat kotak yang diisi tabel disesuaikan
+            header=['ID', 'Jumlah', 'Nama Makanan', 'Harga Satuan', 'Total Harga'] #judul data
             
-            for k in range(4):
+            for k in range(5):
                 e =Label(listbox, width=40, fg='#e27013',font=('Times', 10, 'bold'), text=header[k], borderwidth=1, relief="groove") #lebar judul tabel
                 e.grid(row=0, column=k)
             table(listbox) #ubah data jadi tabel
-            
+
+            def Subtotal():
+                query = "SELECT SUM(jumlah_barang*harga_barang) FROM datapesanancustomer"
+                cursor.execute(query)
+                conn.commit()
+                result = cursor.fetchone()
+                return result[0]
+
+            #label harga sementara total harga pesanan
+            biaya = Label(roo, text=str(Subtotal()),fg='#e27013', font=("Times", 20, "bold"))
+            biaya.place(anchor='center', relx=0.5, rely=0.75)
             roo.mainloop()
         displayStruk() #test

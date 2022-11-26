@@ -1,4 +1,5 @@
 import psycopg2
+from tkinter import messagebox
 
 def TambahProduk(id_barang, jumlah_barang, nama_barang, harga_barang):
     try:
@@ -10,15 +11,15 @@ def TambahProduk(id_barang, jumlah_barang, nama_barang, harga_barang):
 
         cursor = connection.cursor()
 
-        postgres_insert_query = """ INSERT INTO datapesanancustomer (id_barang, jumlah_barang, nama_barang, harga_barang) VALUES (%s,%s,%s,%s)"""
+        postgres_insert_query = "INSERT INTO datapesanancustomer (id_barang, jumlah_barang, nama_barang, harga_barang) VALUES (%s,%s,%s,%s)"
         cursor.execute(postgres_insert_query, (id_barang, jumlah_barang, nama_barang, harga_barang))
 
         connection.commit()
         count = cursor.rowcount
-        print(count, "Record inserted successfully into datapesanancustomer")
+        messagebox.showinfo(count, "Record inserted successfully into datapesanancustomer")
 
     except (Exception, psycopg2.Error) as error:
-        print("Failed to insert record into datapesanancustomer", error)
+        messagebox.showinfo("Failed to insert record into datapesanancustomer", error)
 
 
 # if __name__ == "__main__":
