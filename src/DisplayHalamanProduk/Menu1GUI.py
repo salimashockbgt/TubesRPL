@@ -58,7 +58,7 @@ class Menu1GUI(tk.Tk):
             spbox.place(x=775, y=595)
 
             # button tambah pesanan
-            buttonTambahPesanan = Button(roo, text="Tambahkan ke Pesanan",command=lambda jumlah_barang=spbox.get() : tambah.TambahProduk('1',jumlah_barang,'Nasi Goreng Ayam',25000), bg= '#FBB43C')
+            buttonTambahPesanan = Button(roo, text="Tambahkan ke Pesanan",command=lambda: tambah.TambahProduk('1',spbox.get(),'Nasi Goreng Ayam',25000), bg= '#FBB43C')
             buttonTambahPesanan.pack()
             buttonTambahPesanan.place(anchor='center', relx=0.5, rely=0.75)
             #  button balik ke menu
