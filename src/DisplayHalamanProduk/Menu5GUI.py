@@ -7,6 +7,7 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 import DisplayMenu.DisplayMenuUI as display
 import DisplayKeranjang.DisplayKeranjangUI as keranjang
 import DisplayHalamanProduk.TambahProduk as tambah
+from tkinter import messagebox
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"../img")
@@ -54,6 +55,43 @@ class Menu5GUI(tk.Tk):
             buttonkeranjang = Button(roo, text="Lihat Keranjang", command=keranjang.DisplayKeranjangUI, bg= '#FBB43C')
             buttonkeranjang.pack()
             buttonkeranjang.place(anchor='center', relx=0.55, rely=0.80)
+
+            def getMenu():
+                    try:
+                        return psycopg2.connect(
+                            database="DataRestoran",
+                            user="postgres",
+                            password="123",
+                            host="127.0.0.1",
+                            port=5432,
+                        )
+                    except:
+                        return False
+            def Hapus():
+                conn = getMenu()
+                cursor = conn.cursor()
+                query = "DELETE FROM datapesanancustomer WHERE id_barang = '5' "
+                cursor.execute(query)
+                conn.commit()
+                count = cursor.rowcount
+                messagebox.showinfo(count,"The item has been deleted")
+
+            def UbahKuantitas(jumlah_barang):
+                conn = getMenu()
+                cursor = conn.cursor()
+                query = "UPDATE datapesanancustomer SET jumlah_barang=%s WHERE id_barang = '5' "
+                cursor.execute(query,(jumlah_barang))
+                conn.commit()
+                count = cursor.rowcount
+                messagebox.showinfo(count,"The quantity has been changed")             
+
+            buttonhapus = Button(roo, text="Hapus Barang", command=lambda:Hapus(), bg= '#FBB43C')
+            buttonhapus.pack()
+            buttonhapus.place(anchor='center', relx=0.45, rely=0.85)
+
+            buttonubah = Button(roo, text="Ubah Kuantitas", command=lambda:UbahKuantitas(spbox.get()), bg= '#FBB43C')
+            buttonubah.pack()
+            buttonubah.place(anchor='center', relx=0.55, rely=0.85)
 
             roo.resizable(False, False)
             roo.mainloop()
