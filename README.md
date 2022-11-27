@@ -35,8 +35,9 @@ Christopher Jie - 18220052
 1. Membuat database datamenurestoran dan datapesanancustomer 
 2. Tampilan Daftar Menu Restoran dari Database (DisplayMenuUI)
 3. Tampilan Daftar Menu Restoran GUI (DisplayMenuUI)
-4. Fitur tambah/kurang barang(DisplayHalamanProduk)
+4. Fitur tambah/kurang barang (DisplayHalamanProduk)
 5. Fitur total dan subtotal (Checkout)
+6. Fitur hapus per item dan ubah kuantitas per item (DisplayHalamanProduk)
 
 Salimatussholati Az Zahra - 18220054
 1. Fitur Pencarian Menu (DisplayMenuUI)
