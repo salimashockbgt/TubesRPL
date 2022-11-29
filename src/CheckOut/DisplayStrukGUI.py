@@ -65,7 +65,7 @@ class DisplayStrukGUI(tk.Tk):
             listbox["font"] = ft
             listbox["fg"] = "#e27013"
             listbox["justify"] = "left"
-            listbox.place(x=200, y=75, width=1500, height=200) #batas buat kotak yang diisi tabel disesuaikan
+            listbox.place(x=100, y=75, width=1500, height=200) #batas buat kotak yang diisi tabel disesuaikan
             header=['ID', 'Jumlah', 'Nama Makanan', 'Harga Satuan', 'Total Harga'] #judul data
             
             for k in range(5):
@@ -85,8 +85,7 @@ class DisplayStrukGUI(tk.Tk):
             biaya.place(anchor='center', relx=0.5, rely=0.75)
 
             buttonback = Button(roo, text="Print Struk", command=lambda: roo.quit(), bg= '#FBB43C')
-            buttonback.pack()
-            buttonback.place(anchor='center', x=1200,y=500)
+            buttonback.place(x=900,y=530)
             roo.mainloop()
 
         displayStruk() #test
