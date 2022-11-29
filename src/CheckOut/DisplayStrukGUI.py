@@ -3,7 +3,6 @@ from tkinter import *
 import tkinter.font as tkFont
 import psycopg2
 from math import *
-import DisplayMenu.DisplayMenuUI as display
 
 class DisplayStrukGUI(tk.Tk):
     #constructor
@@ -84,9 +83,10 @@ class DisplayStrukGUI(tk.Tk):
             #label harga sementara total harga pesanan
             biaya = Label(roo, text=str(Subtotal()),fg='#e27013', font=("Times", 20, "bold"))
             biaya.place(anchor='center', relx=0.5, rely=0.75)
-            buttonback = Button(roo, text="Kembali ke Menu", command=display.DisplayMenuUI, bg= '#FBB43C')
+
+            buttonback = Button(roo, text="Print Struk", command=lambda: roo.quit(), bg= '#FBB43C')
             buttonback.pack()
-            buttonback.place(anchor='center', x=100,y=50)
+            buttonback.place(anchor='center', x=1200,y=500)
             roo.mainloop()
 
         displayStruk() #test
