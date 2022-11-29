@@ -83,8 +83,8 @@ class DisplayKeranjangUI(tk.Tk):
 
             my_entry=Entry(roo, font=("Helvetica", 20))
             my_entry.pack()
-            tombolcari=Button(roo, padx=16,pady=16,bd=4, font=('Times', 16,'bold'), text="Notes", bg="Orange", command = AddNotes)
-            tombolcari.place(x=900, y=70)
+            tombolcari=Button(roo, padx=9,pady=9,bd=4, font=('Times', 16,'bold'), text="Notes", bg="Orange", command = AddNotes)
+            tombolcari.place(x=800, y=20)
 
             roo.resizable(False, False)
             roo.mainloop()
