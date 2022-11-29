@@ -38,6 +38,7 @@ Christopher Jie - 18220052
 4. Fitur tambah/kurang barang (DisplayHalamanProduk)
 5. Fitur total dan subtotal (Checkout)
 6. Fitur hapus per item dan ubah kuantitas per item (DisplayHalamanProduk)
+7. Add notes (DisplayKeranjang) (parsial saja karena backendnya sudah di luar sistem)
 
 Salimatussholati Az Zahra - 18220054
 1. Fitur Pencarian Menu (DisplayMenuUI)
