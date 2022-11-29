@@ -3,7 +3,7 @@ from tkinter import *
 import tkinter.font as tkFont
 import psycopg2
 from math import *
-
+import DisplayKeranjang.DisplayKeranjangUI as keranjang
 class DisplayStrukGUI(tk.Tk):
     #constructor
     def __init__(roo):
@@ -26,6 +26,9 @@ class DisplayStrukGUI(tk.Tk):
             #label total harga pesanan
             texttotalharga = Label(roo, text="Total Harga Pesanan", font=("Times", 20, "bold"))
             texttotalharga.place(anchor='center', relx=0.5, rely=0.7)
+            textRP = Label(roo, text="Rp",fg='#e27013', font=("Times", 20, "bold"))
+            textRP.place(anchor='center', relx=0.44, rely=0.75)
+
 
             #label selamat menikmati
             textslm = Label(roo, text="Selamat Menikmati", font=("Times", 15, "bold"))

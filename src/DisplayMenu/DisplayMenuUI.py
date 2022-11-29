@@ -8,6 +8,7 @@ import DisplayHalamanProduk.Menu3GUI as menu3
 import DisplayHalamanProduk.Menu4GUI as menu4
 import DisplayHalamanProduk.Menu5GUI as menu5
 import DisplayHalamanProduk.Menu6GUI as menu6
+import DisplayKeranjang.DisplayKeranjangUI as keranjang
 import psycopg2
 
 class DisplayMenuUI(tk.Tk):
@@ -136,6 +137,7 @@ class DisplayMenuUI(tk.Tk):
                 height=18.0
             )
 
+            #back button
             button_17 = Button(
                 roo,
                 text='Back',
@@ -146,12 +148,26 @@ class DisplayMenuUI(tk.Tk):
                 relief="flat"
             )
             button_17.place(
-                x=601.0,
-                y=621.0,
+                relx=0.42,
+                rely=0.75,
                 width=78.0,
                 height=53.02325439453125
             )
-
+            #  button keranjang
+            buttonkeranjang = Button(
+                roo, text="Lihat\nKeranjang", 
+                bg= '#FBB43C',
+                borderwidth=0,
+                highlightthickness=0,
+                command=keranjang.DisplayKeranjangUI,
+                relief="flat"
+            )
+            buttonkeranjang.place(
+                relx=0.49,
+                rely=0.75,
+                width=78.0,
+                height=53.02325439453125)
+            
             #Update the listbox
             def update(data):
                 my_list.delete(0, END)
@@ -194,9 +210,25 @@ class DisplayMenuUI(tk.Tk):
             my_entry.pack()
             my_list = Listbox(roo, width=50)
             my_list.pack(pady=40)
-            tombolcari=Button(canvas, padx=16,pady=16,bd=4, font=('Times', 16,'bold'), text="Cari", bg="Orange", command = selectmenu)
-            tombolcari.grid(row=1, column=0)
-            tombolcari.pack(padx=900, pady=70)
+            #tombolcari1=Button(canvas, padx=16,pady=16,bd=4, font=('Times', 16,'bold'), text="Cari", bg="Orange", command = selectmenu)
+            #  button keranjang
+            tombolcari = Button(
+                roo, 
+                text="Cari", 
+                bg= '#FBB43C',
+                borderwidth=0,
+                highlightthickness=0,
+                command= selectmenu,
+                relief="flat"
+            )
+            tombolcari.place(
+                relx=0.63,
+                rely=0.006,
+                width=78.0,
+                height=30)
+            
+            #tombolcari.grid(row=1, column=0)
+            #tombolcari.pack(padx=900, pady=70)
 
             # Create a list of menu
             menu = ["Nasi Goreng Ayam", "Nasi Timbel", "Nasi Uduk", "Teh Panas", "Es Teh", "Es Teh Manis/Teh manis"]
