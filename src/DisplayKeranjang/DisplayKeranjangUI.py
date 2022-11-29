@@ -2,17 +2,10 @@ import tkinter as tk
 from tkinter import *
 import tkinter.font as tkFont
 import psycopg2
-from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 import DisplayMenu.DisplayMenuUI as Menu
 import CheckOut.DisplayStrukGUI as checkout
 import DisplayKeranjang.DeleteMenu as deleteMenu
-
-OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"../img")
-
-def relative_to_assets(path: str) -> Path:
-    return ASSETS_PATH / Path(path)
 
 class DisplayKeranjangUI(tk.Tk):
     def __init__(roo):
@@ -32,12 +25,7 @@ class DisplayKeranjangUI(tk.Tk):
             judul = Label(Tops, text="Keranjang", font=("Times", 20, "bold"))
             judul.grid(row=0, column=0)
 
-            
-
-            # Atur Posisi, Grid, Scroll
-
             # program
-
             def getKeranjang():
                 try:
                     return psycopg2.connect(
@@ -72,7 +60,7 @@ class DisplayKeranjangUI(tk.Tk):
             listbox["font"] = ft
             listbox["fg"] = "#000"
             listbox["justify"] = "left"
-            listbox.place(x=200, y=322, width=710, height=100) #batas buat kotak yang diisi tabel disesuaikan
+            listbox.place(x=300, y=122, width=710, height=135) #batas buat kotak yang diisi tabel disesuaikan
             header=['ID', 'Jumlah', 'Nama Menu', 'Harga'] #judul data
             for k in range(4):
                 e =Label(listbox, width=25, fg='#e27013',font=('Times', 10, 'bold'), text=header[k], borderwidth=1, relief="groove") #lebar judul tabel
@@ -81,13 +69,13 @@ class DisplayKeranjangUI(tk.Tk):
 
             # Button
             hapusMenu = Button(roo, text = "Hapus Menu", bg= '#FBB43C',command=deleteMenu.DeleteMenu) # command : HapusMenu()
-            hapusMenu.place(anchor='center', relx=0.5, rely=0.7)
+            hapusMenu.place(x=600, y=600)
 
             BackToMenu = Button(roo, text = "Kembali ke Menu", bg= '#FBB43C',command=Menu.DisplayMenuUI) # command : BackToMenu()
-            BackToMenu.place(anchor='center', relx=0.45, rely=0.80)
+            BackToMenu.place(x = 360, y = 600)
 
             CheckOut = Button(roo, text = "Checkout", bg= '#FBB43C', command= checkout.DisplayStrukGUI) # command : CheckOut()
-            CheckOut.place(anchor='center', relx=0.55, rely=0.80)
+            CheckOut.place(x=850, y=600)
             
             roo.resizable(False, False)
             roo.mainloop()
