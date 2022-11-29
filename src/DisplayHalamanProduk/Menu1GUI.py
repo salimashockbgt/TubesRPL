@@ -9,12 +9,6 @@ import DisplayKeranjang.DisplayKeranjangUI as keranjang
 import DisplayHalamanProduk.TambahProduk as tambah
 from tkinter import messagebox
 
-OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"../img")
-
-def relative_to_assets(path: str) -> Path:
-    return ASSETS_PATH / Path(path)
-
 class Menu1GUI(tk.Tk):
     def __init__(roo):
         super().__init__()
@@ -23,38 +17,40 @@ class Menu1GUI(tk.Tk):
             roo.geometry("1280x832")
             roo.title("Menu1")
 
-            paketAyam_name = Label(roo, text="Nasi Goreng Ayam\n", font=("Arial", 12, "bold"))
-            paketAyam_name.place(x=600, y=470) # letaknya masih asal
+            menu_name = Label(roo, text="Nasi Goreng Ayam\n", font=("Arial", 12, "bold"))
+            menu_name.place(x=360, y=150)
 
-            paketAyam_details = Label(roo, text="Nasi goreng khas My Food dengan suwiran ayam\n", font=("Arial", 10, "normal"))
-            paketAyam_details.place(x=600, y=495) # letaknya masih asal
+            menu_details = Label(roo, text="Nasi goreng khas My Food dengan suwiran ayam\n", font=("Arial", 10, "normal"))
+            menu_details.place(x=360, y=180)
 
-            paketAyam_details2 = Label(roo, text="Rp25.000\n", font=("Arial", 10, "bold"))
-            paketAyam_details2.place(x=600, y=515) # letaknya masih asal
+            menu_harga = Label(roo, text="Rp25.000\n", font=("Arial", 10, "bold"))
+            menu_harga.place(x=360, y=205)
 
-            paketAyam_harga = Label(roo, text="\n", font=("Arial", 10, "normal"))
-            paketAyam_harga.place(x=600, y=540) # letaknya masih asal
-
-            paketAyam_jumlah = Label(roo, text="Jumlah\n", font=("Arial", 10, "bold"))
-            paketAyam_jumlah.pack()
-            paketAyam_jumlah.place(x=770, y=570) # letaknya masih asal
+            menu_jumlah = Label(roo, text="Jumlah\n", font=("Arial", 10, "bold"))
+            menu_jumlah.place(x=605, y=280)
             
             spbox = Spinbox(roo, from_=0, to=10, width=5)
-            spbox.place(x=775, y=595)
+            spbox.place(x=610, y=300)
 
             # button tambah pesanan
             buttonTambahPesanan = Button(roo, text="Tambahkan ke Pesanan",command=lambda: tambah.TambahProduk('1',spbox.get(),'Nasi Goreng Ayam',25000), bg= '#FBB43C')
-            buttonTambahPesanan.pack()
-            buttonTambahPesanan.place(anchor='center', relx=0.5, rely=0.75)
+            buttonTambahPesanan.place(x = 560, y = 350)
+            
             #  button balik ke menu
             buttonback = Button(roo, text="Kembali ke Menu", command=display.DisplayMenuUI, bg= '#FBB43C')
-            buttonback.pack()
-            buttonback.place(anchor='center', relx=0.45, rely=0.80)
+            buttonback.place(x = 360, y = 400)
 
             #  button balik ke keranjang
             buttonkeranjang = Button(roo, text="Lihat Keranjang", command=keranjang.DisplayKeranjangUI, bg= '#FBB43C')
-            buttonkeranjang.pack()
-            buttonkeranjang.place(anchor='center', relx=0.55, rely=0.80)
+            buttonkeranjang.place(x = 800, y = 400)
+
+            # button hapus produk
+            buttonhapus = Button(roo, text="Hapus Barang", command=lambda:Hapus(), bg= '#FBB43C')
+            buttonhapus.place(x = 500, y = 400)
+
+            # button ubah kuantitas
+            buttonubah = Button(roo, text="Ubah Kuantitas", command=lambda:UbahKuantitas(spbox.get()), bg= '#FBB43C')
+            buttonubah.place(x = 650, y =400)
 
             def getMenu():
                     try:
@@ -85,18 +81,6 @@ class Menu1GUI(tk.Tk):
                 count = cursor.rowcount
                 messagebox.showinfo(count,"The quantity has been changed")            
 
-            buttonhapus = Button(roo, text="Hapus Barang", command=lambda:Hapus(), bg= '#FBB43C')
-            buttonhapus.pack()
-            buttonhapus.place(anchor='center', relx=0.35, rely=0.80)
-
-            buttonubah = Button(roo, text="Ubah Kuantitas", command=lambda:UbahKuantitas(spbox.get()), bg= '#FBB43C')
-            buttonubah.pack()
-            buttonubah.place(anchor='center', relx=0.65, rely=0.80)
-
             roo.resizable(False, False)
             roo.mainloop()
         displayMenu1()
-
-
-
-
