@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import *
-from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 import tkinter.font as tkFont
 import DisplayHalamanProduk.Menu1GUI as menu1

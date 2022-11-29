@@ -7,6 +7,7 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 import DisplayMenu.DisplayMenuUI as Menu
 import CheckOut.DisplayStrukGUI as checkout
 import DisplayKeranjang.DeleteMenu as deleteMenu
+from tkinter import messagebox
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"../img")
@@ -89,6 +90,14 @@ class DisplayKeranjangUI(tk.Tk):
             CheckOut = Button(roo, text = "Checkout", bg= '#FBB43C', command= checkout.DisplayStrukGUI) # command : CheckOut()
             CheckOut.place(anchor='center', relx=0.55, rely=0.80)
             
+            def AddNotes():
+                messagebox.showinfo('notes',"Notes has been sent to chef")
+
+            my_entry=Entry(roo, font=("Helvetica", 20))
+            my_entry.pack()
+            tombolcari=Button(roo, padx=16,pady=16,bd=4, font=('Times', 16,'bold'), text="Notes", bg="Orange", command = AddNotes)
+            tombolcari.place(x=900, y=70)
+
             roo.resizable(False, False)
             roo.mainloop()
         displayKeranjang()
