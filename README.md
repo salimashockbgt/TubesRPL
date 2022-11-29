@@ -1,3 +1,4 @@
+<h1 align="center">MyFood</h1>
 <!-- TABLE OF CONTENTS -->
 Daftar Isi
   <ol>
@@ -21,13 +22,14 @@ MyFood merupakan aplikasi pemesanan makanan di restoran yang bertujuan untuk mem
 ## Cara Menjalankan Aplikasi
 
 **Prerequisites**
-1. Mengunduh file DataRestoran.sql pada master branch folder /src/db
+1. Mengunduh file [DataRestoran.sql](https://github.com/salimashockbgt/TubesRPL/tree/master/src/db) yang tersedia pada folder src/db
 2. Membuat database yang bernama DataRestoran pada postgreSQL, lalu mengimport file DataRestoran.sql pada database DataRestoran
 3. Mengubah pengaturan server postgreSQL menjadi sebagai berikut:
-         user="postgres",
-         password="123",
-         host="127.0.0.1",
-         port=5432
+          
+          user="postgres",
+          password="123",
+          host="127.0.0.1",
+          port=5432
 4. Membuka folder src pada master branch lalu run program melalui file Main.py
 
 Saat akan menjalankan program, lakukan instalasi pycoporg2 pada terminal.
