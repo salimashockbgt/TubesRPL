@@ -10,12 +10,6 @@ import DisplayHalamanProduk.Menu5GUI as menu5
 import DisplayHalamanProduk.Menu6GUI as menu6
 import psycopg2
 
-# OUTPUT_PATH = Path(__file__).parent
-# ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\mainset\Documents\Semester 5\RPL\TubesRPL\img")
-
-# def relative_to_assets(path: str) -> Path:
-#     return ASSETS_PATH / Path(path)
-
 class DisplayMenuUI(tk.Tk):
     def __init__(roo):
         super().__init__()
@@ -37,7 +31,7 @@ class DisplayMenuUI(tk.Tk):
 
             canvas.place(x = 0, y = 0)
             canvas.create_text(
-                513.0,
+                200.0,
                 119.0,
                 anchor="nw",
                 text="Daftar Menu",
@@ -76,8 +70,7 @@ class DisplayMenuUI(tk.Tk):
                 width=55.0,
                 height=18.0
             )
-
-            
+   
             button_12 = Button(
                 roo,
                 text='4',
@@ -109,7 +102,6 @@ class DisplayMenuUI(tk.Tk):
                 width=55.0,
                 height=18.0
             )
-
             
             button_14 = Button(
                 roo,
@@ -143,7 +135,6 @@ class DisplayMenuUI(tk.Tk):
                 width=55.0,
                 height=18.0
             )
-
 
             button_17 = Button(
                 roo,
@@ -207,7 +198,6 @@ class DisplayMenuUI(tk.Tk):
             tombolcari.grid(row=1, column=0)
             tombolcari.pack(padx=900, pady=70)
 
-
             # Create a list of menu
             menu = ["Nasi Goreng Ayam", "Nasi Timbel", "Nasi Uduk", "Teh Panas", "Es Teh", "Es Teh Manis/Teh manis"]
             update(menu)
@@ -250,7 +240,7 @@ class DisplayMenuUI(tk.Tk):
             listbox["font"] = ft
             listbox["fg"] = "#000"
             listbox["justify"] = "left"
-            listbox.place(x=200, y=322, width=540, height=135) #batas buat kotak yang diisi tabel disesuaikan
+            listbox.place(x=200, y=305, width=540, height=135) #batas buat kotak yang diisi tabel disesuaikan
             header=['ID', 'Nama Menu', 'Harga'] #judul data
             for k in range(3):
                 e =Label(listbox, width=25, fg='#e27013',font=('Times', 10, 'bold'), text=header[k], borderwidth=1, relief="groove") #lebar judul tabel
