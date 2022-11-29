@@ -88,11 +88,11 @@ class Menu6GUI(tk.Tk):
 
             buttonhapus = Button(roo, text="Hapus Barang", command=lambda:Hapus(), bg= '#FBB43C')
             buttonhapus.pack()
-            buttonhapus.place(anchor='center', relx=0.45, rely=0.85)
+            buttonhapus.place(anchor='center', relx=0.35, rely=0.80)
 
             buttonubah = Button(roo, text="Ubah Kuantitas", command=lambda:UbahKuantitas(spbox.get()), bg= '#FBB43C')
             buttonubah.pack()
-            buttonubah.place(anchor='center', relx=0.55, rely=0.85)
+            buttonubah.place(anchor='center', relx=0.65, rely=0.80)
 
             roo.resizable(False, False)
             roo.mainloop()
