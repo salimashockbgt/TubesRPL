@@ -38,22 +38,6 @@ class Menu1GUI(tk.Tk):
             paketAyam_jumlah = Label(roo, text="Jumlah\n", font=("Arial", 10, "bold"))
             paketAyam_jumlah.pack()
             paketAyam_jumlah.place(x=770, y=570) # letaknya masih asal
-            # L1 = Label(roo, text="User Name")
-            # L1.pack( side = LEFT)
-            # E1 = Entry(roo, bd =5)
-            # E1.pack(side = RIGHT)
-
-            # jumlah=IntVar()
-            # entri = Entry(roo,textvariable=jumlah, width=10)
-            # entri.pack()
-            # entri.place(x=775, y=595)
-
-            # var=IntVar()
-            # #spinbox
-            # def spbox():
-            #     print()
-            # menu1box = Spinbox(roo, from_=0, to=10, width=5, command= print(menu1box.get()))
-            # menu1box.place(x=775, y=595)
             
             spbox = Spinbox(roo, from_=0, to=10, width=5)
             spbox.place(x=775, y=595)
@@ -112,5 +96,7 @@ class Menu1GUI(tk.Tk):
             roo.resizable(False, False)
             roo.mainloop()
         displayMenu1()
+
+
 
 
