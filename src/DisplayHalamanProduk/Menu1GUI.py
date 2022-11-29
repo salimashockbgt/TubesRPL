@@ -33,7 +33,7 @@ class Menu1GUI(tk.Tk):
             spbox.place(x=610, y=300)
 
             # button tambah pesanan
-            buttonTambahPesanan = Button(roo, text="Tambahkan ke Pesanan",command=lambda: tambah.TambahProduk('1',spbox.get(),'Nasi Goreng Ayam',25000), bg= '#FBB43C')
+            buttonTambahPesanan = Button(roo, text="Tambahkan ke Pesanan",command=lambda: tambah.TambahProduk('1',spbox.get(),'Nasi Goreng Ayam',25000.0), bg= '#FBB43C')
             buttonTambahPesanan.place(x = 560, y = 350)
             
             #  button balik ke menu
