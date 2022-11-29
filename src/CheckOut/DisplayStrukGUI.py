@@ -52,7 +52,7 @@ class DisplayStrukGUI(tk.Tk):
             def table(listbox):  
                 for i in range(0,total_rows):
                     for j in range(total_columns):
-                        e =Label(listbox, width=40, fg='#3d8f17', #warna tulisan
+                        e =Label(listbox, width=30, fg='#3d8f17', #warna tulisan
                                 font=('Times', 10, 'bold'), text=rows[i][j], borderwidth=1, relief="groove")
                         e.grid(row=i+1, column=j)
             rows = cursor.fetchall()
@@ -65,11 +65,11 @@ class DisplayStrukGUI(tk.Tk):
             listbox["font"] = ft
             listbox["fg"] = "#e27013"
             listbox["justify"] = "left"
-            listbox.place(x=30, y=75, width=1500, height=200) #batas buat kotak yang diisi tabel disesuaikan
+            listbox.place(x=200, y=75, width=1500, height=200) #batas buat kotak yang diisi tabel disesuaikan
             header=['ID', 'Jumlah', 'Nama Makanan', 'Harga Satuan', 'Total Harga'] #judul data
             
             for k in range(5):
-                e =Label(listbox, width=40, fg='#e27013',font=('Times', 10, 'bold'), text=header[k], borderwidth=1, relief="groove") #lebar judul tabel
+                e =Label(listbox, width=30, fg='#e27013',font=('Times', 10, 'bold'), text=header[k], borderwidth=1, relief="groove") #lebar judul tabel
                 e.grid(row=0, column=k)
             table(listbox) #ubah data jadi tabel
 
