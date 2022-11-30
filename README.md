@@ -61,6 +61,8 @@ Saat akan menjalankan program, lakukan instalasi pycoporg2 pada terminal.
 ## Daftar Modul
 MyFood memiliki 3 modul terimplementasi yang telah dirancangkan pada dokumen perancangan perangkat lunak, yaitu modul menu, modul produk, dan modul keranjang
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### Modul Menu
 Mencakup DisplayMenuUI
 
