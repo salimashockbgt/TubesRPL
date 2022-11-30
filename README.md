@@ -1,3 +1,4 @@
+<a name="readme-top"></a>
 <h1 align="center">MyFood</h1>
 <!-- TABLE OF CONTENTS -->
 Daftar Isi
@@ -6,8 +7,25 @@ Daftar Isi
     <li><a href="#cara-menjalankan-aplikasi">Cara Menjalankan Aplikasi</a></li>
     <li>
       <a href="#daftar-modul">Daftar Modul</a>
+      <ul>
+        <li><a href="#modul-menu">Modul Menu</a></li>
+      </ul>
+      <ul>
+        <li><a href="#modul-produk">Modul Produk</a></li>
+      </ul>
+      <ul>
+        <li><a href="#modul-keranjang">Modul Keranjang</a></li>
+      </ul>
     </li>
-    <li><a href="#daftar-tabel-basis-data">Daftar Tabel Basis Data</a></li>
+    <li>
+      <a href="#daftar-tabel-basis-data">Daftar Tabel Basis Data</a>
+      <ul>
+        <li><a href="#tabel-data-menu-restoran">Tabel Data Menu Restoran</a></li>
+      </ul>
+      <ul>
+        <li><a href="#tabel-data-pesanan-customer">Tabel Data Pesanan Customer</a></li>
+      </ul>
+    </li>
   </ol>
 
 <!-- Penjelasan Aplikasi -->
@@ -17,6 +35,7 @@ Daftar Isi
 
 MyFood merupakan aplikasi pemesanan makanan di restoran yang bertujuan untuk membantu customer yang hendak melakukan pemesanan makanan melalui dekstop app yang tersedia pada restoran. Dengan adanya aplikasi ini, customer akan dimudahkan dalam melihat daftar menu, harga, dan dapat memesan makanan dan minuman sendiri melalui fitur keranjang dan checkout. Makanan yang telah dipesan customer otomatis masuk ke database milik restoran sehingga mempermudah koki dalam menyiapkan menu makanan.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Cara Menjalankan Aplikasi -->
 ## Cara Menjalankan Aplikasi
@@ -36,6 +55,7 @@ Saat akan menjalankan program, lakukan instalasi pycoporg2 pada terminal.
   ```sh
   pip install psycopg2-binary
   ```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Daftar Modul -->
 ## Daftar Modul
@@ -53,6 +73,8 @@ Mencakup DisplayMenuUI
 
 ![170768](https://user-images.githubusercontent.com/88304323/204701908-146cecd9-c2f8-4376-98a2-3c10e8722a15.jpg)
 <p align="center">Tampilan Search Menu</p>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Modul Produk
 Mencakup TambahProduk, MenuGUI1, MenuGUI2, MenuGUI3, MenuGUI4, MenuGUI5, dan MenuGUI6
@@ -77,6 +99,7 @@ Mencakup TambahProduk, MenuGUI1, MenuGUI2, MenuGUI3, MenuGUI4, MenuGUI5, dan Men
 ![menu6](https://user-images.githubusercontent.com/88304323/204703662-acc628f4-c72f-4d09-a3c5-7a860701bfa1.jpg)
 <p align="center">Tampilan Menu 6</p>
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Modul Keranjang
 
@@ -90,7 +113,9 @@ Mencakup DisplayKeranjangUI dan DisplayStrukGUI
 
 ![checkout](https://user-images.githubusercontent.com/88304323/204703667-0f5badf4-8370-4a64-9f17-2849508641de.jpg)
 <p align="center">Tampilan Checkout</p>
-         
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### Penanggung Jawab Fitur
 
 Verawati Esteria S. Simatupang - 18220002
@@ -128,13 +153,31 @@ Muhammad Rayfasa Candra - 18220076
 
          1. Tampilan Keranjang (DisplayKeranjangUI)
 
-*diluar pembagian fitur, kami bekerja saling membantu menyelesaikan antar fungsi dan modul dengan kontribusi yang tidak bisa dituliskan satu per satu*
+*diluar pembagian fitur, kami menerapkan colaboration working dalam menyelesaikan antar fungsi dan modul dengan kontribusi yang tidak bisa dituliskan satu per satu*
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Daftar Tabel Basis Data -->
 ## Daftar Tabel Basis Data
 
 *Daftar Tabel Basisdata :*
+### Tabel Data Menu Restoran
 
-         Tabel datamenurestoran(id_barang, nama_barang, deskripsi_barang, harga_barang)
-         Tabel datapesanancustomer(id_barang(foreign key), jumlah_barang, nama_barang, total_harga)
+```
+datamenurestoran(id_barang, nama_barang, deskripsi_barang, harga_barang)
+```
+         
+<img width="800" alt="DataMenuRestoran" src="https://user-images.githubusercontent.com/88304323/204720674-cdd61b3c-a805-4bc2-9ceb-f0db76905fa7.png">
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Tabel Data Pesanan Customer
+
+```
+datapesanancustomer(id_barang(foreign key), jumlah_barang, nama_barang, total_harga)
+```
+         
+<img width="550" alt="DataPesananCustomer" src="https://user-images.githubusercontent.com/88304323/204721254-8baece73-509f-4b5f-a8d0-a07754c4cc29.png">
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
