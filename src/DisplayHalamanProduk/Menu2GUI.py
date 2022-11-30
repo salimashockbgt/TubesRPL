@@ -28,7 +28,7 @@ class Menu2GUI(tk.Tk):
             menu_jumlah = Label(roo, text="Jumlah\n", font=("Arial", 10, "bold"))
             menu_jumlah.place(x=605, y=280)
 
-            spbox = Spinbox(roo, from_=0, to=10, width=5)
+            spbox = Spinbox(roo, from_=1, to=10, width=5)
             spbox.place(x=610, y=300)
 
             # button tambah pesanan
