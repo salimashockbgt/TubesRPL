@@ -39,11 +39,10 @@ Saat akan menjalankan program, lakukan instalasi pycoporg2 pada terminal.
 
 <!-- Daftar Modul -->
 ## Daftar Modul
-MyFood memiliki 3 modul terimplementasi
+MyFood memiliki 3 modul terimplementasi yang telah dirancangkan pada dokumen perancangan perangkat lunak, yaitu modul menu, modul produk, dan modul keranjang
 
-### Modul Terimplementasi
-*Modul terimpementasikan & Penanggung Jawab:*
-1. Modul Menu (DisplayMenuUI)
+### Modul Menu
+Mencakup DisplayMenuUI
 
          Verawati Esteria S. Simatupang - 18220002
          Salimatussholati Az Zahra - 18220054
@@ -55,7 +54,8 @@ MyFood memiliki 3 modul terimplementasi
 ![170768](https://user-images.githubusercontent.com/88304323/204701908-146cecd9-c2f8-4376-98a2-3c10e8722a15.jpg)
 <p align="center">Tampilan Search Menu</p>
 
-2. Modul Produk (TambahProduk, MenuGUI1, MenuGUI2, MenuGUI3, MenuGUI4, MenuGUI5, MenuGUI6)
+### Modul Produk
+Mencakup TambahProduk, MenuGUI1, MenuGUI2, MenuGUI3, MenuGUI4, MenuGUI5, dan MenuGUI6
 
          Agnes Tamara - 18220010
          
@@ -78,7 +78,9 @@ MyFood memiliki 3 modul terimplementasi
 <p align="center">Tampilan Menu 6</p>
 
 
-3. Modul Keranjang (DeleteMenu, DisplayKeranjangUI, DisplayStrukGUI)
+### Modul Keranjang
+
+Mencakup DisplayKeranjangUI dan DisplayStrukGUI 
 
          Muhammad Rayfasa Candra - 18220076
          Michel Vito Adinugroho - 18220066
@@ -89,7 +91,7 @@ MyFood memiliki 3 modul terimplementasi
 ![checkout](https://user-images.githubusercontent.com/88304323/204703667-0f5badf4-8370-4a64-9f17-2849508641de.jpg)
 <p align="center">Tampilan Checkout</p>
          
-### Pembagian Fitur
+### Penanggung Jawab Fitur
 
 Verawati Esteria S. Simatupang - 18220002
 
