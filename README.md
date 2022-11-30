@@ -105,7 +105,7 @@ Mencakup TambahProduk, MenuGUI1, MenuGUI2, MenuGUI3, MenuGUI4, MenuGUI5, dan Men
 
 ### Modul Keranjang
 
-Mencakup DisplayKeranjangUI dan DisplayStrukGUI 
+Mencakup DisplayKeranjangUI, DeleteMenu, dan DisplayStrukGUI 
 
          Muhammad Rayfasa Candra - 18220076
          Michel Vito Adinugroho - 18220066
