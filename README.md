@@ -48,13 +48,46 @@ MyFood memiliki 3 modul terimplementasi
          Verawati Esteria S. Simatupang - 18220002
          Salimatussholati Az Zahra - 18220054
          Christopher Jie - 18220052     
+         
+![170767](https://user-images.githubusercontent.com/88304323/204701841-89823cf4-2fa1-4109-a923-539d77290083.jpg)
+<p align="center">Tampilan Menu</p>
+
+![170768](https://user-images.githubusercontent.com/88304323/204701908-146cecd9-c2f8-4376-98a2-3c10e8722a15.jpg)
+<p align="center">Tampilan Search Menu</p>
+
 2. Modul Produk (TambahProduk, MenuGUI1, MenuGUI2, MenuGUI3, MenuGUI4, MenuGUI5, MenuGUI6)
 
          Agnes Tamara - 18220010
+         
+![menu1](https://user-images.githubusercontent.com/88304323/204703674-8bbe6db1-9339-460a-a6c2-09d3ea667b5d.jpg)
+<p align="center">Tampilan Menu 1</p>
+
+![menu2](https://user-images.githubusercontent.com/88304323/204703680-ac10f58f-d151-490d-a7cb-7ecee7672060.jpg)
+<p align="center">Tampilan Menu 2</p>
+
+![menu3](https://user-images.githubusercontent.com/88304323/204703686-be7f7792-7f5e-4cc7-8cbf-d90ccab54e12.jpg)
+<p align="center">Tampilan Menu 3</p>
+
+![menu4](https://user-images.githubusercontent.com/88304323/204703691-0f55e5c2-36c1-4590-8904-5959918bf7fe.jpg)
+<p align="center">Tampilan Menu 4</p>
+
+![menu5](https://user-images.githubusercontent.com/88304323/204703657-942dae15-4955-46b2-91d0-b21c9cea5a50.jpg)
+<p align="center">Tampilan Menu 5</p>
+
+![menu6](https://user-images.githubusercontent.com/88304323/204703662-acc628f4-c72f-4d09-a3c5-7a860701bfa1.jpg)
+<p align="center">Tampilan Menu 6</p>
+
+
 3. Modul Keranjang (DeleteMenu, DisplayKeranjangUI, DisplayStrukGUI)
 
          Muhammad Rayfasa Candra - 18220076
          Michel Vito Adinugroho - 18220066
+         
+![keranjang](https://user-images.githubusercontent.com/88304323/204703670-abdc8226-9592-44c8-b3ac-22d8a36d7a1e.jpg)
+<p align="center">Tampilan Keranjang</p>
+
+![checkout](https://user-images.githubusercontent.com/88304323/204703667-0f5badf4-8370-4a64-9f17-2849508641de.jpg)
+<p align="center">Tampilan Checkout</p>
          
 ### Pembagian Fitur
 
